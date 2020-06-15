@@ -4,16 +4,16 @@
 
 #include "definiciones.h"
 
-bool esSenial(vector<int> s, int prof, int freq);
-bool seEnojo(senial s, int umbral, int prof, int freq);
-bool esReunionValida(reunion r, int prof, int freq);
-void acelerar(reunion& r, int prof, int freq);		//C
-void ralentizar(reunion &r, int prof, int freq);	//C
-vector<hablante> tonosDeVozElevados(reunion r, int prof, int freq);
-void ordenar(reunion& r, int prof, int freq);
-vector<intervalo> silencios(senial s, int prof, int freq, int umbral);
-bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral);
-senial reconstruir(senial s, int prof, int freq);
-void filtradoMediana(senial& s, int R, int prof, int freq);
+bool esSenial(vector<int> s, int prof, int freq);			//S
+bool seEnojo(senial s, int umbral, int prof, int freq);			//V
+bool esReunionValida(reunion r, int prof, int freq);			//S
+void acelerar(reunion& r, int prof, int freq);				//C
+void ralentizar(reunion &r, int prof, int freq);			//C
+vector<hablante> tonosDeVozElevados(reunion r, int prof, int freq);	//N
+void ordenar(reunion& r, int prof, int freq);				//N
+vector<intervalo> silencios(senial s, int prof, int freq, int umbral);	//S
+bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral);	//V
+senial reconstruir(senial s, int prof, int freq);			//C
+void filtradoMediana(senial& s, int R, int prof, int freq);		
 
 #endif //REUNIONESREMOTAS_SOLUCION_H
