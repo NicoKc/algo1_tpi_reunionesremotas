@@ -7,8 +7,8 @@
 bool esSenial(vector<int> s, int prof, int freq);
 bool seEnojo(senial s, int umbral, int prof, int freq);
 bool esReunionValida(reunion r, int prof, int freq);
-void acelerar(reunion& r, int prof, int freq);
-void ralentizar(reunion &r, int prof, int freq);
+void acelerar(reunion& r, int prof, int freq);		//C
+void ralentizar(reunion &r, int prof, int freq);	//C
 vector<hablante> tonosDeVozElevados(reunion r, int prof, int freq);
 void ordenar(reunion& r, int prof, int freq);
 vector<intervalo> silencios(senial s, int prof, int freq, int umbral);
