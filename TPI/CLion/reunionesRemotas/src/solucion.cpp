@@ -31,9 +31,38 @@ void ralentizar(reunion& r, int prof, int freq) {
     return;
 }
 
+int sumatoria(vector<int> s) {
+    int suma = 0;
+
+    int i = 0;
+    while (i < s.size()) {
+        suma += s[i];
+        i++;
+    }
+
+    return suma;
+}
+
+float tono(senial s) {
+    return abs(sumatoria(s)) / s.size();
+}
+
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
-    vector<hablante> maximos;
-    // Implementacion
+    vector<hablante> maximos{r[0].second};
+    float tonoMaximo = tono(r[0].first);
+
+    int i = 1;
+    while (i < r.size()) {
+        float tonoDelHablante = tono(r[i].first);
+
+        if (tonoDelHablante > tonoMaximo) {
+            maximos = {r[i].second};
+        } else if (tonoDelHablante == tonoMaximo) {
+            maximos.push_back(r[i].second);
+        }
+        i++;
+    }
+
     return maximos;
 }
 
