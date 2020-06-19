@@ -19,7 +19,7 @@ TEST(ordenarTEST, ordenarValido) {
     ASSERT_REUNION_EQ(reunionOriginal, reunionOrdenada);
 }
 
-TEST(ordenarTEST, señalesConMismoTonodeVoz) {
+TEST(ordenarTEST, senialesConMismoTonodeVoz) {
     senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
     senial hablante2 = {6, 0, -2, 1, 3, -3, 4, -8, 9, -15};
     senial hablante3 = {-2, -8, 9, -15, 1, 3, -3, 4, 6, 0};
