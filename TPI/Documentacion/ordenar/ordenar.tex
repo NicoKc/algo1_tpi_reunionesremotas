@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\input{../latex/Algo1Macros}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset
+{
+    language=Caml,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\begin{document}
+
+    \section*{Ordenar}
+
+    \subsection*{swap}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/swap.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+            $c_1$ & 1 \\
+            $c_2$ & 1 \\
+            $c_3$ & 1 \\
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{r}$
+        \item $T_{swap}(m) = c_1 + c_2 + c_3 $
+        \item $T_{swap}(m) \in O(1)$
+    \end{itemize}
+
+    \subsection*{sumatoria}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/sumatoria.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+            $c^{\prime}_1$ & 1   \\
+                           &     \\
+            $c^{\prime}_2$ & 1   \\
+            $c^{\prime}_3$ & n+1 \\
+            $c^{\prime}_4$ & n   \\
+            $c^{\prime}_5$ & n   \\
+                           &     \\
+                           &     \\
+            $c^{\prime}_6$ & 1   \\
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $n = \longitud{s}$
+        \item $T_{sumatoria}(n) = c^{\prime}_1 + c^{\prime}_2 + c^{\prime}_3 * (n+1) + c^{\prime}_4 * n + c^{\prime}_5 * n + c^{\prime}_6 $
+        \item $T_{sumatoria}(n) \in O(n)$
+    \end{itemize}
+
+    \subsection*{tono}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/tono.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+
+            $c^{\prime\prime}_1 * n$ & 1 \\
+
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $n = \longitud{s}$
+        \item $T_{tono}(n) = c^{\prime\prime}_1 * n $
+        \item $T_{tono}(n) \in O(n)$
+    \end{itemize}
+
+    \subsection*{insert}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/insert.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+            $c^{\prime\prime\prime}_1$ & 1 \\
+            $c^{\prime\prime\prime}_2*(n+n)$ & m+1 \\
+            $c^{\prime\prime\prime}_3$ & m \\
+            $c^{\prime\prime\prime}_4$ & m \\
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{r}$
+        \item $T_{insert}(m) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 * 2n * (m+1) + c^{\prime\prime\prime}_3 * m + c^{\prime\prime\prime}_4 * m $
+        \item $T_{insert}(m) \in O(n*m)$
+    \end{itemize}
+
+    \subsection*{insertionSort}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/insertionSort.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+
+            $c^{\prime\prime\prime\prime}_1$ & 1 \\
+            $c^{\prime\prime\prime\prime}_2$ & m+1 \\
+            $c^{\prime\prime\prime\prime}_3*(n*m)$ & m \\
+            $c^{\prime\prime\prime\prime}_4$ & m \\
+
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{r}$
+        \item $T_{insertSort}(m) = c^{\prime\prime\prime\prime}_1 + c^{\prime\prime\prime\prime}_2 * (m+1) + c^{\prime\prime\prime\prime}_3*n*m*m + c^{\prime\prime\prime\prime}_4 * m$
+        \item $T_{insertSort}(m) \in O(n*m^{2})$
+    \end{itemize}
+
+    \subsection*{ordenar}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/ordernar.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+
+            $c^{\prime\prime\prime\prime\prime}_1*(n*m^2)$ & 1 \\
+
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{r}$
+        \item $T_{ordenar}(m) = c^{\prime\prime\prime\prime\prime}_1*(n*m^2)$
+        \item $T_{ordenar}(m) \in O(n*m^{2})$
+    \end{itemize}
+
+\end{document}
