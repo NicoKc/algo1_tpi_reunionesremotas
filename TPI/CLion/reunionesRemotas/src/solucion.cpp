@@ -21,12 +21,12 @@ bool esReunionValida(reunion r, int prof, int freq) {
 }
 
 
-void acelerar(reunion &r, int prof, int freq) {
+void acelerar(reunion& r, int prof, int freq) {
     // Implementacions
     return;
 }
 
-void ralentizar(reunion &r, int prof, int freq) {
+void ralentizar(reunion& r, int prof, int freq) {
     // Implementacions
     return;
 }
@@ -111,7 +111,7 @@ senial reconstruir(senial s, int prof, int freq) {
     return senalReconstruida;
 }
 
-void filtradoMediana(senial &s, int R, int prof, int freq) {
+void filtradoMediana(senial& s, int R, int prof, int freq) {
     // Implementacion
     return;
 }
