@@ -111,7 +111,7 @@ senial reconstruir(senial s, int prof, int freq) {
     return senalReconstruida;
 }
 
-void filtradoMediana(senial& s, int R, int prof, int freq) {
+void filtradoMediana(senial& s, int R, int prof, int freq){
     // Implementacion
     return;
 }
