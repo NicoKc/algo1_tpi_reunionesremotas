@@ -21,12 +21,12 @@ bool esReunionValida(reunion r, int prof, int freq) {
 }
 
 
-void acelerar(reunion& r, int prof, int freq) {
+void acelerar(reunion &r, int prof, int freq) {
     // Implementacions
     return;
 }
 
-void ralentizar(reunion& r, int prof, int freq) {
+void ralentizar(reunion &r, int prof, int freq) {
     // Implementacions
     return;
 }
@@ -66,9 +66,30 @@ vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
     return maximos;
 }
 
-void ordenar(reunion& r, int freq, int prof) {
-    // Implementacion
-    return;
+void swap(reunion &r, int i, int j) {
+    pair<senial, hablante> aux = r[i];
+    r[i] = r[j];
+    r[j] = aux;
+}
+
+void insert(reunion &r, int i) {
+    int j = i;
+    while (j > 0 && tono(r[j].first) > tono(r[j - 1].first)) {
+        swap(r, j, j - 1);
+        j--;
+    }
+}
+
+void insertionSort(reunion &r) {
+    int i = 0;
+    while (i < r.size()) {
+        insert(r, i);
+        i++;
+    }
+}
+
+void ordenar(reunion &r, int freq, int prof) {
+    insertionSort(r);
 }
 
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
@@ -90,7 +111,7 @@ senial reconstruir(senial s, int prof, int freq) {
     return senalReconstruida;
 }
 
-void filtradoMediana(senial& s, int R, int prof, int freq){
+void filtradoMediana(senial &s, int R, int prof, int freq) {
     // Implementacion
     return;
 }
