@@ -3,6 +3,7 @@
 
 #include "definiciones.h"
 #include <iostream>
+#include <fstream>
 
 senial leerSenial(string nombreArchivo);
 void escribirSenial(senial  s, string nombreArchivo);
