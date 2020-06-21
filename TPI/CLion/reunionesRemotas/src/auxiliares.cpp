@@ -3,15 +3,39 @@
 #include "auxiliares.h"
 
 void escribirSenial(senial  s, string nombreArchivo){
-    // Implementacion
-    return;
+    ofstream fout;
+    fout.open(nombreArchivo);
+    int i = 0;
+    int muestra = 0;
+    while(i < s.size()){
+        muestra = s[i];
+        fout << muestra << "";
+    }
+    fout.close();
+
 }
 
 
 senial leerSenial(string nombreArchivo){
     senial s;
-    // Implementacion
+    ifstream fin;
+    fin.open(nombreArchivo);
+    if(fin.fail()){
+        cout<<"Error"<<endl;
+    }else{
+        while(!fin.eof()){
+            fin >> s;
+        }
+    }
+    fin.close();
     return s;
+}
+
+float tono(senial s){
+    int sumatoria = 0;
+    for (int i= 0; i < s.size(); ++i)
+        sumatoria = sumatoria + abs(s[i]);
+    return sumatoria/s.size();
 }
 
 bool senialesOrdenadasIguales(senial s1, senial s2){
