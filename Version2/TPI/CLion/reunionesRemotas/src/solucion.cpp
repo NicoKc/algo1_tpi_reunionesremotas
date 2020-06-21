@@ -1,23 +1,11 @@
 #include "solucion.h"
 
 // Ejercicios
-/*************preds_esSenial********************************************************/
 
-/*
- tipos
-
-senial    = vector<int>
-hablante  = int
-reunion   = vector<pair<senial, hablante>>
-intervalo = pair<int, int>
- */
-
-bool duraMasDe(senial s, int freq, float seg){
-    return (s.size() >= freq*seg);
-}
+//proc esSenial
 
 bool profValida(int prof){
-     return (prof == 8) || (prof == 16) || (prof == 32);
+    return (prof == 8) || (prof == 16) || (prof == 32);
 }
 
 // ver cuando s = < >. REVISAR si cumple la especificación
@@ -30,7 +18,7 @@ bool enRango(senial s, int prof){
         if((-2^(prof-1) <= s[i] <= 2^(prof-1) - 1)){
             count = count + 1;
         } else{
-            
+
         }
 
 
@@ -42,8 +30,11 @@ bool enRango(senial s, int prof){
 }
 
 bool frecValida(int freq){
-    int frec = 10;
-    return (freq == frec);
+    return (freq == 10);
+}
+
+bool duraMasDe(senial s, int freq, float seg){
+    return (s.size() >= freq*seg);
 }
 
 bool esValida(senial s, int prof, int frec ){
@@ -58,41 +49,42 @@ bool esSenial(vector<int> s, int prof, int freq) {
     resp = esValida(s,prof,freq);
     return resp;
 }
-/***********************************************************************************/
 
+//proc seEnojo?
 
-/*
+bool superaUmbral(senial s, int umbral){
+
+}
+
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
     // Implementacion
+    resp=
     return resp;
-}*/
-
-
-
-//Problema de recorrido??
-// reps indica repetición de una aparición
-bool hablantesDeReunionValidos(reunion r, int prof, int freq){
-int i = 0;
-int j = 0;
-int reps= 0;
-
-// chequeo de todos los i
-while(i < r.size()) {
-// chequeo de un solo i
-    while (j < r.size()) {
-        if ((r[i] == r[j]) && (i != j)) {
-            reps = reps + 1;
-
-        }
-        j++;
-
-    }
-
-    i++;
 }
 
-return (reps == 0);
+//proc esReunionValida
+bool hablantesDeReunionValidos(reunion r, int prof, int freq){
+    int i = 0;
+    int j = 0;
+    int reps= 0;
+
+// chequeo de todos los i
+    while(i < r.size()) {
+// chequeo de un solo i
+        while (j < r.size()) {
+            if ((r[i] == r[j]) && (i != j)) {
+                reps = reps + 1;
+
+            }
+            j++;
+
+        }
+
+        i++;
+    }
+
+    return (reps == 0);
 }
 
 
@@ -102,7 +94,7 @@ bool senialesValidas(reunion r, int prof, int freq){
     int count = 0;
     while(i < r.size()){
         if(esValida((r[i]).first, prof, freq)){
-        count = count + 1;
+            count = count + 1;
         }
         i++;
     }
@@ -116,12 +108,12 @@ bool esMatriz (vector< pair<senial,int>> &r){
     int i = 1;
     while (i < r.size() && (r[0]).first.size() == (r[i]).first.size()){
         i++;
-        }
-
-
     }
 
-    return (i == r.size());
+
+}
+
+return (i == r.size());
 }
 
 bool reunionValida(reunion r, int prof, int freq ){
@@ -136,7 +128,7 @@ bool esReunionValida(reunion r, int prof, int freq) {
     return resp;
 }
 
-/*
+// proc acelerar
 void acelerar(reunion& r, int prof, int freq) {
     // Implementacions
     return;
@@ -157,22 +149,18 @@ void ordenar(reunion& r, int freq, int prof) {
     // Implementacion
     return;
 }
-*/
 
-
-umbralValido(int umbral){
+bool umbralValido(int umbral){
     return (umbral > 0);
 }
-/*
+
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
     vector<pair<int,int> > intervalos;
-    if(esValida(s, prof, freq) && umbralValido(umbral)){
-
-    }
+    // Implementacion
     return intervalos;
 }
 
-/*
+
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
     // Implementacion
@@ -189,15 +177,4 @@ void filtradoMediana(senial& s, int R, int prof, int freq){
     // Implementacion
     return;
 }
-*/
-/***********************************************************/
 
-int main(){
-
-
-
-
-
-
-    return 0;
-}
