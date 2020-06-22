@@ -53,11 +53,13 @@ bool esSenial(vector<int> s, int prof, int freq) {
 
 //proc seEnojo?
 
+/*
 bool superaUmbral(senial s, int umbral){
     bool resp = false;
     resp = tono(s) > umbral;
     return resp;
 }
+*/
 
 /*
 bool umbralValido(int umbral){
@@ -65,12 +67,14 @@ bool umbralValido(int umbral){
 }
 */
 
+
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
     // Implementacion
-    resp=
+
     return resp;
 }
+
 
 //proc esReunionValida
 bool hablantesDeReunionValidos(reunion r, int prof, int freq){
@@ -113,16 +117,15 @@ bool senialesValidas(reunion r, int prof, int freq){
 }
 // <= o <???
 // hay que optimizarlo mas?
-bool esMatriz (vector< pair<senial,int>> &r){
+bool esMatriz (vector< pair<senial,int> > &r){
     int i = 1;
     while (i < r.size() && (r[0]).first.size() == (r[i]).first.size()){
         i++;
     }
 
 
-}
+    return (i == r.size());
 
-return (i == r.size());
 }
 
 bool reunionValida(reunion r, int prof, int freq ){

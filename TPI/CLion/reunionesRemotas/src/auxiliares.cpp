@@ -1,6 +1,7 @@
 #include "../lib/gtest.h"
 #include "definiciones.h"
 #include "auxiliares.h"
+#include <fstream>
 
 void escribirSenial(senial  s, string nombreArchivo){
     ofstream fout;
@@ -19,12 +20,14 @@ void escribirSenial(senial  s, string nombreArchivo){
 senial leerSenial(string nombreArchivo){
     senial s;
     ifstream fin;
+    int muestra = 0;
     fin.open(nombreArchivo);
     if(fin.fail()){
         cout<<"Error"<<endl;
     }else{
         while(!fin.eof()){
-            fin >> s;
+            fin >> muestra;
+            s.push_back(muestra);
         }
     }
     fin.close();
