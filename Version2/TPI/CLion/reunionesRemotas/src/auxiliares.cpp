@@ -3,14 +3,31 @@
 #include "auxiliares.h"
 
 void escribirSenial(senial  s, string nombreArchivo){
-    // Implementacion
-    return;
+    ofstream fout;
+    fout.open(nombreArchivo);
+    int i = 0;
+    int muestra = 0;
+    while(i < s.size()){
+        muestra = s[i];
+        fout << muestra << "";
+    }
+    fout.close();
+
 }
 
 
 senial leerSenial(string nombreArchivo){
     senial s;
-    // Implementacion
+    ifstream fin;
+    fin.open(nombreArchivo);
+    if(fin.fail()){
+        cout<<"Error"<<endl;
+    }else{
+        while(!fin.eof()){
+            fin >> s;
+        }
+    }
+    fin.close();
     return s;
 }
 
