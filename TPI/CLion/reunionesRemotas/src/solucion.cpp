@@ -205,24 +205,6 @@ bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     return resp;
 }
 
-senial reconstruir(senial s, int prof, int freq) {
-    senial sN(s.size());
-    for(int i=0;i<s.size();i++){
-        if(s[i]!=0){
-            sN[i]=s[i];
-        } 
-        else{
-            if(s[i-1]*s[i+1]<0){
-                sN[i]=s[i];
-            }
-            else{
-                sN[i]=promedio(noNuloMasCercanoAIzquierda(s,i), noNuloMasCercanoADerecha(s,i));
-            }
-        }
-    }
-    return sN;
-}
-
 int noNuloMasCercanoAIzquierda(senial s, int i){
     //supongo que i está en rango
     int res=0;
@@ -252,6 +234,24 @@ int noNuloMasCercanoADerecha(senial s, int i){
 int promedio(int a, int b){
     int p=(a+b)/2;
     return p;
+}
+
+senial reconstruir(senial s, int prof, int freq) {
+    senial sN(s.size());
+    for(int i=0;i<s.size();i++){
+        if(s[i]!=0){
+            sN[i]=s[i];
+        } 
+        else{
+            if(s[i-1]*s[i+1]<0){
+                sN[i]=s[i];
+            }
+            else{
+                sN[i]=promedio(noNuloMasCercanoAIzquierda(s,i), noNuloMasCercanoADerecha(s,i));
+            }
+        }
+    }
+    return sN;
 }
 
 void filtradoMediana(senial& s, int R, int prof, int freq){
