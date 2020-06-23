@@ -189,10 +189,6 @@ int sumatoria(vector<int> s) {
     return suma;
 }
 
-float tono(senial s) {
-    return abs(sumatoria(s)) / s.size();
-}
-
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
     vector<hablante> maximos{r[0].second};
     float tonoMaximo = tono(r[0].first);
