@@ -1,44 +1,17 @@
 #include "../lib/gtest.h"
 #include "definiciones.h"
 #include "auxiliares.h"
-#include <fstream>
 
 void escribirSenial(senial  s, string nombreArchivo){
-    ofstream fout;
-    fout.open(nombreArchivo);
-    int i = 0;
-    int muestra = 0;
-    while(i < s.size()){
-        muestra = s[i];
-        fout << muestra << "";
-    }
-    fout.close();
-
+    // Implementacion
+    return;
 }
 
 
 senial leerSenial(string nombreArchivo){
     senial s;
-    ifstream fin;
-    int muestra = 0;
-    fin.open(nombreArchivo);
-    if(fin.fail()){
-        cout<<"Error"<<endl;
-    }else{
-        while(!fin.eof()){
-            fin >> muestra;
-            s.push_back(muestra);
-        }
-    }
-    fin.close();
+    // Implementacion
     return s;
-}
-
-float tono(senial s){
-    int sumatoria = 0;
-    for (int i= 0; i < s.size(); ++i)
-        sumatoria = sumatoria + abs(s[i]);
-    return sumatoria/s.size();
 }
 
 bool senialesOrdenadasIguales(senial s1, senial s2){
@@ -62,8 +35,6 @@ bool reunionesIguales(reunion reunion1, reunion reunion2){
         if(reunion1[i].first.size() != reunion2[i].first.size())
             return false;
 
-        sort(reunion1[i].first.begin(), reunion1[i].first.end());
-        sort(reunion2[i].first.begin(), reunion2[i].first.end());
 
         if(!senialesOrdenadasIguales(reunion1[i].first, reunion2[i].first))
             return false;
@@ -99,8 +70,6 @@ bool intervalosOrdenadosIguales(vector<intervalo> s1, vector<intervalo> s2){
 }
 
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
 
     ASSERT_TRUE(senialesOrdenadasIguales(s1, s2));
 }

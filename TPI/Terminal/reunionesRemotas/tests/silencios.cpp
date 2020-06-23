@@ -11,7 +11,7 @@ TEST(silenciosTEST, silenciosValidos){
     int freq = 10;
     int umbral = 3;
 
-    vector<intervalo> intervalos = {make_pair(0,0), make_pair(5,6)};
+    vector<intervalo> intervalos = {make_pair(5,6)};
 
     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
 }

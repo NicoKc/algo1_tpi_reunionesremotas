@@ -35,8 +35,6 @@ bool reunionesIguales(reunion reunion1, reunion reunion2){
         if(reunion1[i].first.size() != reunion2[i].first.size())
             return false;
 
-        sort(reunion1[i].first.begin(), reunion1[i].first.end());
-        sort(reunion2[i].first.begin(), reunion2[i].first.end());
 
         if(!senialesOrdenadasIguales(reunion1[i].first, reunion2[i].first))
             return false;
@@ -72,8 +70,6 @@ bool intervalosOrdenadosIguales(vector<intervalo> s1, vector<intervalo> s2){
 }
 
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
 
     ASSERT_TRUE(senialesOrdenadasIguales(s1, s2));
 }
