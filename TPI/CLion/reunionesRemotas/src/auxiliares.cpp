@@ -34,11 +34,11 @@ senial leerSenial(string nombreArchivo){
     return s;
 }
 
-float tono(senial s){
+float tono(vector<int> s){
     int sumatoria = 0;
-    for (int i= 0; i < s.size(); ++i)
+    for(int i=0; i < s.size(); i++)
         sumatoria = sumatoria + abs(s[i]);
-    return sumatoria/s.size();
+    return sumatoria / s.size();
 }
 
 bool senialesOrdenadasIguales(senial s1, senial s2){

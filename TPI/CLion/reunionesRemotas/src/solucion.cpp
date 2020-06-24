@@ -53,28 +53,27 @@ bool esSenial(vector<int> s, int prof, int freq) {
 
 //proc seEnojo?
 
-/*
-bool superaUmbral(senial s, int umbral){
-    bool resp = false;
-    resp = tono(s) > umbral;
-    return resp;
-}
-*/
-
-/*
-bool umbralValido(int umbral){
-    umbral > 0;
-}
-*/
-
-
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
-    // Implementacion
+    int min = 2;
+    if(!duraMasDe(s,freq,min)){
+        return resp;
+    } else{
+        // for(int i=0; i < (s.size() - (min*freq)); i++){
+        int i = 0;
+        while( i < (s.size() - (min*freq)) && resp == false){
+            int j=i+(min*freq)+1;
+            while(j<s.size() && resp == false){
+                vector<int> subSenial (s[i,j]);
+                resp = tono(subSenial) > umbral;
+                j++;
+            }
+            i++;
+        }
 
+    }
     return resp;
 }
-
 
 //proc esReunionValida
 bool hablantesDeReunionValidos(reunion r, int prof, int freq){
