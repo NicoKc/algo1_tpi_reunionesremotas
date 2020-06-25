@@ -64,9 +64,7 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
             int j=i+(min*freq)+1;
             while(j<=s.size() && resp == false){
                 senial subSenial (s.begin()+i,s.begin()+j);
-                int promedio = tono(subSenial);
-                resp = (promedio > umbral);
-                //resp = (tono(subSenial) > umbral);
+                resp = (tono(subSenial) > umbral);
                 j++;
             }
             i++;

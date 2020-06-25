@@ -35,7 +35,7 @@ senial leerSenial(string nombreArchivo){
 }
 
 float tono(senial s){
-    int sumatoria = 0;
+    float sumatoria = 0;
     for(int i=0; i < s.size(); i++)
         sumatoria = sumatoria + abs(s[i]);
     return sumatoria / s.size();
