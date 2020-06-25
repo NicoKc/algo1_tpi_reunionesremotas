@@ -6,7 +6,7 @@
 using namespace std;
 
 TEST(acelerarTEST, aceleracionValida){
-    senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+    senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 0, 0, -2, -8, 9, -15};
     senial hablante2 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
     reunion reunionOriginal = {make_pair(hablante1, 0), make_pair(hablante2, 1)};
     int prof = 8;
@@ -20,5 +20,7 @@ TEST(acelerarTEST, aceleracionValida){
 
     ASSERT_REUNION_EQ(reunionOriginal, reunionAcelerada);
 }
+
+
 
 
