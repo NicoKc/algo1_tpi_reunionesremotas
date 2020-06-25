@@ -23,4 +23,13 @@ TEST(seEnojoTEST, senialEnojada){
     ASSERT_TRUE(seEnojo(s, umbral, prof, freq));
 }
 
+TEST(seEnojoTEST, senialEnojadaAlFinal){
+    senial s = {-1,1,-2,2,-2,2,8,-8,-8,1,2,-2,-2,2,3,-3,1,-1,2,-2,-2,2,3,-3,-7};
+    int prof = 8;
+    int freq = 10;
+    int umbral = 2;
+
+    ASSERT_TRUE(seEnojo(s, umbral, prof, freq));
+}
+
 

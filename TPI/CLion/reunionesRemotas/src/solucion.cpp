@@ -59,20 +59,20 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
     if(!duraMasDe(s,freq,min)){
         return resp;
     } else{
-        // for(int i=0; i < (s.size() - (min*freq)); i++){
         int i = 0;
         while( i < (s.size() - (min*freq)) && resp == false){
             int j=i+(min*freq)+1;
-            while(j<s.size() && resp == false){
+            while(j<=s.size() && resp == false){
                 senial subSenial (s.begin()+i,s.begin()+j);
-                resp = tono(subSenial) > umbral;
+                int promedio = tono(subSenial);
+                resp = (promedio > umbral);
+                //resp = (tono(subSenial) > umbral);
                 j++;
             }
             i++;
         }
-
+        return resp;
     }
-    return resp;
 }
 
 //proc esReunionValida
