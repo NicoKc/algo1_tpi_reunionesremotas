@@ -3,7 +3,7 @@
 
 
 #include "definiciones.h"
-
+float tono(senial s);
 bool esSenial(vector<int> s, int prof, int freq);
 bool seEnojo(senial s, int umbral, int prof, int freq);
 bool esReunionValida(reunion r, int prof, int freq);

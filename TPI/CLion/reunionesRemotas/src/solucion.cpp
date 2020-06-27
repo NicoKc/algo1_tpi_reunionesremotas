@@ -10,25 +10,15 @@ bool profValida(int prof){
     return (prof == 8) || (prof == 16) || (prof == 32);
 }
 
-// ver cuando s = < >. REVISAR si cumple la especificación
+//
 bool enRango(senial s, int prof){
-    bool res = false;
-    int count= 0;
+    bool resp = true;
     int i= 0;
-    int n= s.size();
-    while ((i < n)){
-        if((-2^(prof-1) <= s[i] <= 2^(prof-1) - 1)){
-            count = count + 1;
-        } else{
-
-        }
-
-
+    while (i < s.size() && resp){
+        resp = (s[i] >= - (pow(2,(prof-1)))) && (s[i] <= (pow(2,(prof-1))-1));
         i++;
     }
-    return (count == n);
-
-
+    return resp;
 }
 
 bool frecValida(int freq){
@@ -40,19 +30,21 @@ bool duraMasDe(senial s, int freq, float seg){
 }
 
 bool esValida(senial s, int prof, int frec ){
-    bool res = false;
-    res = (frecValida(frec) && profValida(prof) && enRango(s, prof) && duraMasDe(s, frec, 1));
-    return res;
-
+        return (frecValida(frec) && profValida(prof) && enRango(s, prof) && duraMasDe(s, frec, 1));
 }
 
 bool esSenial(vector<int> s, int prof, int freq) {
-    bool resp = false;
-    resp = esValida(s,prof,freq);
-    return resp;
+    return esValida(s,prof,freq);
 }
 
 //proc seEnojo?
+float tono(senial s){
+    float sumatoria = 0;
+    for(int i=0; i < s.size(); i++){
+        sumatoria = sumatoria + abs(s[i]);
+    }
+    return sumatoria / s.size();
+}
 
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
@@ -76,55 +68,39 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
 
 //proc esReunionValida
 bool hablantesDeReunionValidos(reunion r, int prof, int freq){
+    bool resp = true;
     int i = 0;
-    int j = 0;
-    int reps= 0;
-
-// chequeo de todos los i
-    while(i < r.size()) {
-// chequeo de un solo i
-        while (j < r.size()) {
-            if ((r[i] == r[j]) && (i != j)) {
-                reps = reps + 1;
-
+    while(i < r.size() && resp) {
+        if(r[i].second < r.size() && r[i].second >=0){
+            int j = i+1;
+            while (j < r.size() && resp) {
+                if(r[i].second == r[j].second){
+                    resp = false;
+                }
+                j++;
             }
-            j++;
-
+        }else{
+            resp = false;
         }
-
         i++;
     }
-
-    return (reps == 0);
+    return resp;
 }
 
-
-// 0 = first?
 bool senialesValidas(reunion r, int prof, int freq){
     int i = 0;
-    int count = 0;
-    while(i < r.size()){
-        if(esValida((r[i]).first, prof, freq)){
-            count = count + 1;
-        }
+    while(i < r.size() && esValida((r[i]).first, prof, freq)){
         i++;
     }
-
-    return (count == r.size());
-
+    return (i == r.size());
 }
 
-// <= o <???
-// hay que optimizarlo mas?
 bool esMatriz (vector< pair<senial,int> > &r){
     int i = 1;
-    while (i < r.size() && (r[0]).first.size() == (r[i]).first.size()){
+    while (i < r.size() && r[0].first.size() == r[i].first.size()){
         i++;
     }
-
-
     return (i == r.size());
-
 }
 
 bool reunionValida(reunion r, int prof, int freq ){
@@ -176,18 +152,6 @@ void ralentizar(reunion& r, int prof, int freq) {
     return;
 }
 
-int sumatoria(vector<int> s) {
-    int suma = 0;
-
-    int i = 0;
-    while (i < s.size()) {
-        suma += s[i];
-        i++;
-    }
-
-    return suma;
-}
-
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
     vector<hablante> maximos{r[0].second};
     float tonoMaximo = tono(r[0].first);
@@ -233,10 +197,6 @@ void ordenar(reunion &r, int freq, int prof) {
     insertionSort(r);
 }
 
-bool umbralValido(int umbral){
-    return (umbral > 0);
-}
-
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
     vector<pair<int,int> > intervalos;
     int i=0;
@@ -257,7 +217,6 @@ vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
     }
     return intervalos;
 }
-
 
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
@@ -355,14 +314,6 @@ vector<int> insertionSort(vector<int> w) {
     }
 
     return res;
-}
-
-void ordenarElPrimero(vector<int> &w) {
-    int i = 1;
-    while (i < w.size() && w[i - 1] < w[i]) {
-        swap(w, i - 1, i);
-        i++;
-    }
 }
 
 void filtradoMediana(senial &s, int R, int prof, int freq) {

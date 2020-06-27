@@ -34,12 +34,7 @@ senial leerSenial(string nombreArchivo){
     return s;
 }
 
-float tono(senial s){
-    float sumatoria = 0;
-    for(int i=0; i < s.size(); i++)
-        sumatoria = sumatoria + abs(s[i]);
-    return sumatoria / s.size();
-}
+
 
 bool senialesOrdenadasIguales(senial s1, senial s2){
     if(s1.size() != s2.size())
