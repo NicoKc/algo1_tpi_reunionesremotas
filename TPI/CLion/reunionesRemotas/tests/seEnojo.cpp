@@ -33,7 +33,7 @@ TEST(seEnojoTEST, senialEnojadaCompleta){
 }
 
 TEST(seEnojoTEST, senialEnojadaAlFinal){
-    senial s = {-1,1,-1,1,-2,2,8,-7,7,1,2,-2,-2,2,3,-3,1,-1,2,-2,-2,2,3,-3,-7};
+    senial s = {-1,1,-1,1,-1,1,8,-7,7,1,2,-2,-2,2,3,-3,1,-1,2,-2,-2,2,3,-3,-7};
     int prof = 8;
     int freq = 10;
     int umbral = 3;

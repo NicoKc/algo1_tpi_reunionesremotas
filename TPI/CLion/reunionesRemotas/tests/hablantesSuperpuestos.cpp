@@ -16,3 +16,13 @@ TEST(hablantesSuperpuestosTEST, hablantesSuperpuestosValidos){
     ASSERT_TRUE(hablantesSuperpuestos(reunion, prof, freq, umbral));
 }
 
+TEST(hablantesSuperpuestosTEST, hablantesNoSuperpuestos){
+    senial hablante1 = {1, 2, -3, 4, 6, 0, -2, -1, 2, -1};
+    senial hablante2 = {1, -1, -2, 2, 0, 1, 3, 12, 1, -1};
+    reunion reunion = {make_pair(hablante1, 0), make_pair(hablante2, 1)};
+    int prof = 8;
+    int freq = 10;
+    int umbral = 3;
+
+    ASSERT_FALSE(hablantesSuperpuestos(reunion, prof, freq, umbral));
+}

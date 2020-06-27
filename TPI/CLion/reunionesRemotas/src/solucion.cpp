@@ -61,8 +61,8 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
         return resp;
     } else{
         int i = 0;
-        while( i < (s.size() - (min*freq)) && resp == false){
-            int j=i+(min*freq)+1;
+        while( i < (s.size() - (min*freq-1)) && resp == false){
+            int j=i+(min*freq);
             while(j<=s.size() && resp == false){
                 senial subSenial (s.begin()+i,s.begin()+j);
                 resp = (tono(subSenial) > umbral);
@@ -263,9 +263,9 @@ bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
     senial hablando(r[0].first.size()); // vector de ceros del tamanio de la senial
     int j = 0;
-    while(j < r.size() && resp ==false){
+    while(j < r.size() && !resp){
         int i = 0;
-        while( i < r[0].first.size()-1 && resp==false){
+        while( i < r[0].first.size()-1 && !resp){
             if(((abs(r[j].first[i])) >= umbral) || ((abs(r[j].first[i])) < umbral) && ((abs(r[j].first[i+1])) >= umbral)) {
                 if(hablando[i] == 1){
                     resp=true;
