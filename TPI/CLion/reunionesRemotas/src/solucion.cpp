@@ -112,6 +112,7 @@ bool senialesValidas(reunion r, int prof, int freq){
     return (count == r.size());
 
 }
+
 // <= o <???
 // hay que optimizarlo mas?
 bool esMatriz (vector< pair<senial,int> > &r){
@@ -316,7 +317,7 @@ senial reconstruir(senial s, int prof, int freq) {
     for(int i=0;i<s.size();i++){
         if(s[i]!=0){
             sN[i]=s[i];
-        } 
+        }
         else{
             if(s[i-1]*s[i+1]<0){
                 sN[i]=s[i];
@@ -329,8 +330,56 @@ senial reconstruir(senial s, int prof, int freq) {
     return sN;
 }
 
-void filtradoMediana(senial& s, int R, int prof, int freq){
-    // Implementacion
-    return;
+void swap(vector<int> &w, int i, int j) {
+    int aux = w[i];
+    w[i] = w[j];
+    w[j] = aux;
+}
+
+void insert(vector<int> &w, int i) {
+    int j = i;
+    while (j > 0 && w[j] > w[j - 1]) {
+        swap(w, j, j - 1);
+        j--;
+    }
+}
+
+void insertionSort(vector<int> &w) {
+    int i = 0;
+    while (i < w.size()) {
+        insert(w, i);
+        i++;
+    }
+}
+
+void ordenarElPrimero(vector<int> &w) {
+    int i = 1;
+    while (i < w.size() && w[i - 1] < w[i]) {
+        swap(w, i - 1, i);
+        i++;
+    }
+}
+
+void filtradoMediana(senial &s, int R, int prof, int freq) {
+    vector<int> w((2 * R) + 1, 0);
+
+    int j = 2 * R;
+    while (j >= 0) {
+        w[j] = s[j];
+        j--;
+    }
+
+    insertionSort(w);
+
+    int i = R;
+    int fin = s.size() - R;
+    while (i < fin) {
+        if (i != R) {
+            w[0] = s[i + R];
+            ordenarElPrimero(w);
+        }
+        s[i] = w[R];
+        i++;
+    }
 }
 

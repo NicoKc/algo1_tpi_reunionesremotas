@@ -19,3 +19,18 @@ TEST(filtradoMedianaTEST, filtradoMedianaValidos){
     ASSERT_SENIAL_EQ(hablante, hablanteResultante);
 }
 
+TEST(filtradoMedianaTEST, filtradoMedianaValidos2) {
+    senial hablante = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+
+    int prof = 8;
+    int freq = 10;
+    int R = 2;
+
+    senial hablanteResultante = {1, 3, 3, 3, 0, 0, 0, -2, 9, -15};
+
+    filtradoMediana(hablante, R, prof, freq);
+
+    ASSERT_EQ(hablante, hablanteResultante);
+
+    ASSERT_SENIAL_EQ(hablante, hablanteResultante);
+}
