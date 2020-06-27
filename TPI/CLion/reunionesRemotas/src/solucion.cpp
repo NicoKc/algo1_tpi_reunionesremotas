@@ -237,14 +237,46 @@ bool umbralValido(int umbral){
 
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
     vector<pair<int,int> > intervalos;
-    // Implementacion
+    int i=0;
+    while(i < (s.size() - 1)){
+        if(abs(s[i]) < umbral ){
+            int j = i + 1;
+            while(j < s.size() && (abs(s[j]) < umbral)){
+                j++;
+            }
+            if(j > (i + 1)){
+                intervalos.push_back(make_pair(i,(j - 1)));
+            }
+            i = j + 1;
+        }
+        else{
+            i++;
+        }
+    }
     return intervalos;
 }
 
 
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
-    // Implementacion
+    senial hablando(r[0].first.size()); // vector de ceros del tamanio de la senial
+    int j = 0;
+    while(j < r.size() && resp ==false){
+        int i = 0;
+        while( i < r[0].first.size()-1 && resp==false){
+            if(((abs(r[j].first[i])) >= umbral) || ((abs(r[j].first[i])) < umbral) && ((abs(r[j].first[i+1])) >= umbral)) {
+                if(hablando[i] == 1){
+                    resp=true;
+                }else{
+                    hablando[i] = 1;
+                }
+                i++;
+            }else{
+                i++;
+            }
+        }
+        j++;
+    }
     return resp;
 }
 
