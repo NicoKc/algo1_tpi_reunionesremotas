@@ -4,6 +4,7 @@
 *.fls
 *.log
 *.synctex.gz
+*.exe
 __latexindent_temp.tex
 .idea/
 cmake-build-debug/
