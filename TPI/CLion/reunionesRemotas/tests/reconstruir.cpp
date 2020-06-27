@@ -6,7 +6,7 @@
 using namespace std;
 
 TEST(reconstruirTEST, reconstruirValidos){
-    senial hablante1 = {1, 3, 0, -3, 4, 6, 0, 0, 0, -8, 9, -15};
+    senial hablante1 = {1, 3, -3, 4, 6, 0, 0, -8, 9, -15};
     int prof = 8;
     int freq = 10;
 
@@ -16,4 +16,3 @@ TEST(reconstruirTEST, reconstruirValidos){
 
     ASSERT_HABLANTES_EQ(hablanteObtenido, hablante1Reconstruido);
 }
-

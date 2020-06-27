@@ -21,4 +21,3 @@ TEST(ralentizarTEST, ralentizacionValida){
     ASSERT_REUNION_EQ(reunionOriginal, reunionRalentizada);
 }
 
-
