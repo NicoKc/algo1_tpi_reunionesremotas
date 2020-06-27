@@ -1,5 +1,6 @@
 #include "solucion.h"
 #include "auxiliares.h"
+#include <iostream>
 
 // Ejercicios
 
@@ -338,18 +339,22 @@ void swap(vector<int> &w, int i, int j) {
 
 void insert(vector<int> &w, int i) {
     int j = i;
-    while (j > 0 && w[j] > w[j - 1]) {
+    while (j > 0 && w[j] < w[j - 1]) {
         swap(w, j, j - 1);
         j--;
     }
 }
 
-void insertionSort(vector<int> &w) {
+vector<int> insertionSort(vector<int> w) {
+    vector<int> res = w;
+
     int i = 0;
     while (i < w.size()) {
-        insert(w, i);
+        insert(res, i);
         i++;
     }
+
+    return res;
 }
 
 void ordenarElPrimero(vector<int> &w) {
@@ -362,6 +367,7 @@ void ordenarElPrimero(vector<int> &w) {
 
 void filtradoMediana(senial &s, int R, int prof, int freq) {
     vector<int> w((2 * R) + 1, 0);
+    vector<int> wOrdenada((2 * R) + 1);
 
     int j = 2 * R;
     while (j >= 0) {
@@ -369,16 +375,14 @@ void filtradoMediana(senial &s, int R, int prof, int freq) {
         j--;
     }
 
-    insertionSort(w);
-
     int i = R;
     int fin = s.size() - R;
     while (i < fin) {
         if (i != R) {
-            w[0] = s[i + R];
-            ordenarElPrimero(w);
+            w[i - R - 1] = s[i + R];
         }
-        s[i] = w[R];
+        wOrdenada = insertionSort(w);
+        s[i] = wOrdenada[R];
         i++;
     }
 }
