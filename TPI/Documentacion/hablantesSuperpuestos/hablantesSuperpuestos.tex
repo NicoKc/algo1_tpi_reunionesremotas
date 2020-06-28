@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\input{../latex/Algo1Macros}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset
+{
+    language=Caml,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\begin{document}
+
+    \section*{Hablantes Superpuetos}
+
+    \subsection*{hablantesSuperpuestos}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/hablantesSuperpuestos.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+            $c_1$ & 1 \\
+            $c_2$ & 1 \\
+            $c_3$ & 1 \\
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{w}$
+        \item $T_{hablantesSuperpuestos}(m) = c_1 + c_2 + c_3 $
+        \item $T_{hablantesSuperpuestos}(m) \in O(1)$
+    \end{itemize}
+
+\end{document}
