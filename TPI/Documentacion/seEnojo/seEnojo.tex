@@ -36,7 +36,49 @@
 
     \section*{Se enojo?}
 
-    \subsection*{seEnojo?}
+    \subsection*{tono}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/tono.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+
+            $c_1$ & 1 \\
+            $c_2$ & n+1 \\
+            $c_3$ & n \\
+            $   $ &   \\
+            $c_4$ & 1 \\
+
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $n = \longitud{s}$
+        \item $T_{tono}(n) = c_1 + c_2 * (n + 1) + c_3 * n + c_4 $
+        \item $T_{tono}(n) \in O(n)$
+    \end{itemize}
+
+    \subsection*{duraMasDe}
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/duraMasDe.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \begin{tabular}{|c|c}
+            $c^{\prime\prime}_1$ & 1 \\
+
+        \end{tabular}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $n = \longitud{s}$
+        \item $T_{duraMasDe}(n) = c^{\prime\prime}_1 $
+        \item $T_{duraMasDe}(n) \in O(1)$
+    \end{itemize}
+
+    \subsection*{seEnojo}
 
     \begin{minipage}{0.70\textwidth}
         \lstinputlisting{./code/seEnojo.cpp}
@@ -44,16 +86,26 @@
     \hfill
     \begin{minipage}{0.25\textwidth}
         \begin{tabular}{|c|c}
-            $c_1$ & 1 \\
-            $c_2$ & 1 \\
-            $c_3$ & 1 \\
-        \end{tabular}
+            $c^{\prime\prime\prime}_1$ & 1 \\
+            $c^{\prime\prime\prime}_2$ & 1 \\
+            $c^{\prime\prime\prime}_3$ & 1 \\
+            $           	     $ &   \\
+	    $           	     $ &   \\
+            $c^{\prime\prime\prime}_4$ & (n-r) + 1 \\
+	    $c^{\prime\prime\prime}_5$ & 1 \\
+	    $c^{\prime\prime\prime}_6 * (n-r)$ & (n-r) + 1 \\
+            $c^{\prime\prime\prime}_7$ & 1 \\
+	    $c^{\prime\prime\prime}_8*(n-r)*(n-r)$ & n \\
+	    $c^{\prime\prime\prime}_9$ & 1 \\
+	    $           	     $ &   \\
+	    $c^{\prime\prime\prime}_10$ & 1 \\
+	\end{tabular}
     \end{minipage}
 
     \begin{itemize}
-        \item $m = \longitud{w}$
-        \item $T_{seEnojo}(m) = c_1 + c_2 + c_3 $
-        \item $T_{seEnojo}(m) \in O(1)$
+	\item $r = min * freq - 1 = 19$
+        \item $T_{seEnojo}(n) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 + c^{\prime\prime\prime}_3 + c^{\prime\prime\prime}_4 * [(n-r+1] + c^{\prime\prime\prime}_5 + c^{\prime\prime\prime}_6 * (n-r) * (n-r+1) + c^{\prime\prime\prime}_7 + c^{\prime\prime\prime}_8 * (n-r)^{2} * n + c^{\prime\prime\prime}_9 + c^{\prime\prime\prime}_10$
+        \item $T_{seEnojo}(m) \in O(n^{3})$
     \end{itemize}
 
 \end{document}
