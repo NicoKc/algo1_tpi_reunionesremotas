@@ -91,20 +91,21 @@
             $c^{\prime\prime\prime}_3$ & 1 \\
             $           	     $ &   \\
 	    $           	     $ &   \\
-            $c^{\prime\prime\prime}_4$ & (n-r) + 1 \\
-	    $c^{\prime\prime\prime}_5$ & 1 \\
-	    $c^{\prime\prime\prime}_6 * (n-r)$ & (n-r) + 1 \\
-            $c^{\prime\prime\prime}_7$ & 1 \\
-	    $c^{\prime\prime\prime}_8*(n-r)*(n-r)$ & n \\
-	    $c^{\prime\prime\prime}_9$ & 1 \\
+	    $c^{\prime\prime\prime}_4$ & 1 \\
+            $c^{\prime\prime\prime}_5$ & (n-r) + 1 \\
+	    $c^{\prime\prime\prime}_6$ & (n-r) \\
+	    $c^{\prime\prime\prime}_7 * (n-r)$ & (n-r) + 1 \\
+            $c^{\prime\prime\prime}_8 * (n-r)$ & (n-r) \\
+	    $c^{\prime\prime\prime}_9 * (n-r) * n$ & (n-r) \\
+	    $c^{\prime\prime\prime}_10 * (n-r)$ & (n-r) \\
 	    $           	     $ &   \\
-	    $c^{\prime\prime\prime}_10$ & 1 \\
+	    $c^{\prime\prime\prime}_11$ & (n-r) \\
 	\end{tabular}
     \end{minipage}
 
     \begin{itemize}
 	\item $r = min * freq - 1 = 19$
-        \item $T_{seEnojo}(n) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 + c^{\prime\prime\prime}_3 + c^{\prime\prime\prime}_4 * [(n-r+1] + c^{\prime\prime\prime}_5 + c^{\prime\prime\prime}_6 * (n-r) * (n-r+1) + c^{\prime\prime\prime}_7 + c^{\prime\prime\prime}_8 * (n-r)^{2} * n + c^{\prime\prime\prime}_9 + c^{\prime\prime\prime}_10$
+        \item $T_{seEnojo}(n) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 + c^{\prime\prime\prime}_3 + c^{\prime\prime\prime}_4 + c^{\prime\prime\prime}_5 * (n-r+1) + c^{\prime\prime\prime}_6 * (n-r) + c^{\prime\prime\prime}_7 * (n-r) + c^{\prime\prime\prime}_8 * (n-r)^{2} + c^{\prime\prime\prime}_9 * (n-r)^{2} * n + c^{\prime\prime\prime}_10 * (n-r)^{2} + c^{\prime\prime\prime}_11 * (n-r)$
         \item $T_{seEnojo}(m) \in O(n^{3})$
     \end{itemize}
 

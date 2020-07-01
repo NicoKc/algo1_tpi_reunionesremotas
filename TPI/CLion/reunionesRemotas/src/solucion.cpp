@@ -220,7 +220,7 @@ vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
 
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
-    senial hablando(r[0].first.size()); // vector de ceros del tamanio de la senial
+    vector<int> hablando(r[0].first.size()); // vector de ceros del tamanio de la senial
     int j = 0;
     while(j < r.size() && !resp){
         int i = 0;

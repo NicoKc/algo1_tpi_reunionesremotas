@@ -16,3 +16,5 @@ TEST(silenciosTEST, silenciosValidos){
     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
 }
 
+
+
