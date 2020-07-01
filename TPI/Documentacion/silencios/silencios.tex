@@ -47,14 +47,21 @@
             $c_1$ & 1 \\
             $c_2$ & 1 \\
             $c_3$ & 1+(n-1) \\
-            $c_4$ & 1 \\
+            $c_4$ & (n-1) \\
+            $c_5$ & (n-1) \\
+            $c_6$ & 1+(n-1) \\
+            $c_7$ & (n-1) \\
+            $   $ & \\
+	    $c_8$ & (n-1) \\
+	    $c_9$ & (n-1) \\
+            
         \end{tabular}
     \end{minipage}
 
     \begin{itemize}
-        \item $m = \longitud{w}$
-        \item $T_{silencios}(m) = c_1 + c_2 + c_3 $
-        \item $T_{silencios}(m) \in O(1)$
+        \item $n = \longitud{s}$
+        \item $T_{silencios}(n) = c_1 + c_2 + c_3 * n + c_4 * (n-1) + c_5 * (n-1) + c_6 * n + c_7 * (n-1) + c_8 * (n-1) + c_9 * (n-1)$
+        \item $T_{silencios}(n) \in O(n)$
     \end{itemize}
 
 \end{document}
