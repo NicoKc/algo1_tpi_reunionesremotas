@@ -45,15 +45,21 @@
     \begin{minipage}{0.25\textwidth}
         \begin{tabular}{|c|c}
             $c_1$ & 1 \\
-            $c_2$ & 1 \\
-            $c_3$ & 1 \\
+            $c_2$ & m+1 \\
+            $c_3$ & m \\
+            $c_4$ & m*n/2 \\
+            $c_5$ & m*n/2 \\
+            $c_6$ & m*n/2 \\
+            $c_7$ & m*n \\
+            $c_8$ & m*n \\
+            $c_9$ & m \\
         \end{tabular}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{w}$
-        \item $T_{acelerar}(m) = c_1 + c_2 + c_3 $
-        \item $T_{acelerar}(m) \in O(1)$
+        \item $T_{acelerar}(m) = c_1 + c_2 * (m+1) + c_3 + c_4 * (m*n/2)+ c_5 * (m*n/2)+ c_6 * (m*n/2)+ c_7* (m*n) + c_8 * (m*n)+ c_9* m $ 
+        \item $T_{acelerar}(m) \in O(m*n)$
     \end{itemize}
 
 \end{document}
