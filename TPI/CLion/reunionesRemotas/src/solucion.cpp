@@ -38,10 +38,18 @@ bool esSenial(vector<int> s, int prof, int freq) {
 }
 
 //proc seEnojo?
+
+int valorAbsoluto(int &n){
+    if(n<0){
+        n = n * (-1);
+    }
+    return n;
+}
+
 float tono(senial s){
     float sumatoria = 0;
     for(int i=0; i < s.size(); i++){
-        sumatoria = sumatoria + abs(s[i]);
+        sumatoria = sumatoria + valorAbsoluto(s[i]);
     }
     return sumatoria / s.size();
 }
