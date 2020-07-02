@@ -1,4 +1,4 @@
-void acelerar(reunion &r, int p, int f){ //llamo m=r.size() y n=r[0].size()
+void acelerar(reunion &r, int p, int f){
     reunion rV=r;			
     for(int i=0; i<rV.size(); i++){
         int a=0;
