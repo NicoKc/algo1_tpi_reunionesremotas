@@ -115,8 +115,8 @@
             $c^{\prime\prime\prime}_5$ & (n-r) + 1 \\
 	    $c^{\prime\prime\prime}_6$ & (n-r) \\
 	    $c^{\prime\prime\prime}_7 * (n-r)$ & (n-r) + 1 \\
-            $c^{\prime\prime\prime}_8 * (n-r)$ & (n-r) \\
-	    $c^{\prime\prime\prime}_9 * (n-r) * n$ & (n-r) \\
+            $c^{\prime\prime\prime}_8 * (n-r) * (j-i)$ & (n-r) \\
+	    $c^{\prime\prime\prime}_9 * (n-r) * (j-i)$ & (n-r) \\
 	    $c^{\prime\prime\prime}_10 * (n-r)$ & (n-r) \\
 	    $           	     $ &   \\
 	    $c^{\prime\prime\prime}_11$ & (n-r) \\
@@ -125,7 +125,9 @@
 
     \begin{itemize}
 	\item $r = min * freq - 1 = 19$
-        \item $T_{seEnojo}(n) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 + c^{\prime\prime\prime}_3 + c^{\prime\prime\prime}_4 + c^{\prime\prime\prime}_5 * (n-r+1) + c^{\prime\prime\prime}_6 * (n-r) + c^{\prime\prime\prime}_7 * (n-r) + c^{\prime\prime\prime}_8 * (n-r)^{2} + c^{\prime\prime\prime}_9 * (n-r)^{2} * n + c^{\prime\prime\prime}_10 * (n-r)^{2} + c^{\prime\prime\prime}_11 * (n-r)$
+        \item $(n-r) ~= n$
+        \item $(j-i) ~= n$
+        \item $T_{seEnojo}(n) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 + c^{\prime\prime\prime}_3 + c^{\prime\prime\prime}_4 + c^{\prime\prime\prime}_5 * (n-r+1) + c^{\prime\prime\prime}_6 * (n-r) + c^{\prime\prime\prime}_7 * (n-r) + c^{\prime\prime\prime}_8 * (n-r)^{2} * (j-i) + c^{\prime\prime\prime}_9 * (n-r)^{2} * (j-i) + c^{\prime\prime\prime}_10 * (n-r)^{2} + c^{\prime\prime\prime}_11 * (n-r)$
         \item $T_{seEnojo}(m) \in O(n^{3})$
     \end{itemize}
 
