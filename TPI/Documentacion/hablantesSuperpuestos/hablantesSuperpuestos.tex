@@ -45,15 +45,31 @@
     \begin{minipage}{0.25\textwidth}
         \begin{tabular}{|c|c}
             $c_1$ & 1 \\
-            $c_2$ & 1 \\
+            $c_2$ & n \\
             $c_3$ & 1 \\
+            $c_4$ & m + 1 \\
+            $c_5$ & m \\
+            $c_6 * m$ & (n-1) + 1 \\
+            $c_7 * m$ & (n-1) \\
+            $c_8 * m$ & (n-1) \\
+            $c_9 * m$ & (n-1) \\
+            $	    $ & \\
+            $	    $ & \\
+            $	    $ & \\
+            $c_10 * m$ & (n-1) \\
+            $	    $ & \\
+            $	    $ & \\
+            $	    $ & \\
+            $	    $ & \\
+            $c_11$ & m \\
         \end{tabular}
     \end{minipage}
 
     \begin{itemize}
-        \item $m = \longitud{w}$
-        \item $T_{hablantesSuperpuestos}(m) = c_1 + c_2 + c_3 $
-        \item $T_{hablantesSuperpuestos}(m) \in O(1)$
+        \item $n = \longitud{r[0].first}$
+        \item $m = \longitud{r}$
+        \item $T_{hablantesSuperpuestos}(r) = c_1 + c_2 * n + c_3 + c_4 * (m+1) + c_5 * m + c_6 * m * n + c_7 * m * (n-1) + c_8 * m * (n-1) + c_9 * m * (n-1) + c_10 * m * (n-1) + c_11 * m $
+        \item $T_{hablantesSuperpuestos}(r) \in O(m*n)$
     \end{itemize}
 
 \end{document}
