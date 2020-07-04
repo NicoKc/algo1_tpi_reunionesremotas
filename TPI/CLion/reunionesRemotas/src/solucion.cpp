@@ -310,23 +310,25 @@ void insert(vector<int> &w, int i) {
     }
 }
 
-vector<int> insertionSort(vector<int> w) {
-    vector<int> res = w;
-
+void insertionSort(vector<int> &w) {
     int i = 0;
     while (i < w.size()) {
-        insert(res, i);
+        insert(w, i);
         i++;
     }
+}
 
-    return res;
+int posicionROrdenada(vector<int> w, int R) {
+    insertionSort(w);
+
+    return w[R];
 }
 
 void filtradoMediana(senial &s, int R, int prof, int freq) {
-    vector<int> w((2 * R) + 1, 0);
-    vector<int> wOrdenada((2 * R) + 1);
+    int largoDeW = (2 * R) + 1;
+    vector<int> w(largoDeW, 0);
 
-    int j = 2 * R;
+    int j = largoDeW - 1;
     while (j >= 0) {
         w[j] = s[j];
         j--;
@@ -336,10 +338,9 @@ void filtradoMediana(senial &s, int R, int prof, int freq) {
     int fin = s.size() - R;
     while (i < fin) {
         if (i != R) {
-            w[i - R - 1] = s[i + R];
+            w[(i - R - 1) % largoDeW] = s[i + R];
         }
-        wOrdenada = insertionSort(w);
-        s[i] = wOrdenada[R];
+        s[i] = posicionROrdenada(w, R);
         i++;
     }
 }
