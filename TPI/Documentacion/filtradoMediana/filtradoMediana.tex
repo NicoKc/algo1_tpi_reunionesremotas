@@ -118,8 +118,8 @@
     \hfill
     \begin{minipage}{0.25\textwidth}
         \begin{tabular}{|c|c}
-            $c^{\prime\prime\prime}_1            $ & 1     \\
-            $c^{\prime\prime\prime}_2            $ & 1     \\
+            $c^{\prime\prime\prime}_1            $ & m     \\
+            $c^{\prime\prime\prime}_2            $ & m     \\
             $                                    $ &       \\
             $c^{\prime\prime\prime}_3            $ & 1     \\
             $c^{\prime\prime\prime}_4            $ & m + 1 \\
@@ -141,7 +141,7 @@
 
     \begin{itemize}
         \item $m = (2*R) + 1 \wedge n = \longitud{s}$
-        \item $T_{filtradoMediana}(m) = c^{\prime\prime\prime}_1+                       $
+        \item $T_{filtradoMediana}(n) = c^{\prime\prime\prime}_1+                       $
                                        $c^{\prime\prime\prime}_2+                       $
                                        $c^{\prime\prime\prime}_3+                       $
                                        $c^{\prime\prime\prime}_4 \cdot (m+1)+           $
@@ -154,7 +154,9 @@
                                        $c^{\prime\prime\prime}_{11} \cdot (n-m-1)+      $
                                        $c^{\prime\prime\prime}_{12} \cdot m \cdot (n-m)+$
                                        $c^{\prime\prime\prime}_{13} \cdot (n-m)         $
-        \item $T_{filtradoMediana}(m) \in O(m \cdot (n-m))$
+        \item $T_{filtradoMediana}(n) \in O(m \cdot (n - m))$
+        \item $ m \in [5,9]$
+        \item $T_{filtradoMediana}(n) \in O(n)$
     \end{itemize}
 
 \end{document}
