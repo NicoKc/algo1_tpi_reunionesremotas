@@ -1,21 +1,16 @@
 #include "solucion.h"
-#include "auxiliares.h"
-#include <iostream>
 
-// Ejercicios
-
-//proc esSenial
-
+/*=================proc esSenial=============================================*/
 bool profValida(int prof) {
     return (prof == 8) || (prof == 16) || (prof == 32);
 }
 
-//
 bool enRango(senial s, int prof) {
     bool resp = true;
     int i = 0;
     while (i < s.size() && resp) {
-        resp = (s[i] >= -(pow(2, (prof - 1)))) && (s[i] <= (pow(2, (prof - 1)) - 1));
+        resp = s[i] >= -pow(2, prof - 1) &&
+               s[i] <= (pow(2, prof - 1) - 1);
         i++;
     }
     return resp;
@@ -30,14 +25,17 @@ bool duraMasDe(senial s, int freq, float seg) {
 }
 
 bool esValida(senial s, int prof, int frec) {
-    return (frecValida(frec) && profValida(prof) && enRango(s, prof) && duraMasDe(s, frec, 1));
+    return (frecValida(frec) &&
+            profValida(prof) &&
+            enRango(s, prof) &&
+            duraMasDe(s, frec, 1));
 }
 
 bool esSenial(vector<int> s, int prof, int freq) {
     return esValida(s, prof, freq);
 }
-
-//proc seEnojo?
+/*===========================================================================*/
+/*=================proc seEnojo?=============================================*/
 int valorAbsoluto(int &n) {
     if (n < 0) {
         n = n * (-1);
@@ -46,25 +44,25 @@ int valorAbsoluto(int &n) {
 }
 
 float tono(senial s) {
-    float sumatoria = 0;
+    int sumatoria = 0;
     for (int i = 0; i < s.size(); i++) {
         sumatoria = sumatoria + valorAbsoluto(s[i]);
     }
-    return sumatoria / s.size();
+    return ((float) sumatoria) / s.size();
 }
 
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
-    int min = 2;
-    if (!duraMasDe(s, freq, min)) {
+    int minimo = 2;
+    if (!duraMasDe(s, freq, (float) minimo)) {
         return resp;
     } else {
         int i = 0;
-        while (i < (s.size() - (min * freq - 1)) && !resp) {
-            int j = i + (min * freq);
+        while (i < (s.size() - (minimo * freq - 1)) && !resp) {
+            int j = i + (minimo * freq);
             while (j <= s.size() && !resp) {
                 senial subSenial(s.begin() + i, s.begin() + j);
-                resp = (tono(subSenial) > umbral);
+                resp = (tono(subSenial) > (float) umbral);
                 j++;
             }
             i++;
@@ -72,8 +70,8 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
         return resp;
     }
 }
-
-//proc esReunionValida
+/*===========================================================================*/
+/*=================proc esReunionValida======================================*/
 bool hablantesDeReunionValidos(reunion r, int prof, int freq) {
     bool resp = true;
     int i = 0;
@@ -110,19 +108,18 @@ bool esMatriz(vector<pair<senial, int> > &r) {
     return (i == r.size());
 }
 
-bool reunionValida(reunion r, int prof, int freq) {
-    return (r.size() > 0) && (esMatriz(r)) && (senialesValidas(r, prof, freq)) &&
+bool reunionValida(reunion &r, int prof, int freq) {
+    return (r.size() > 0) && (esMatriz(r)) &&
+           (senialesValidas(r, prof, freq)) &&
            (hablantesDeReunionValidos(r, prof, freq));
 
 }
 
 bool esReunionValida(reunion r, int prof, int freq) {
-    bool resp = false;
-    resp = reunionValida(r, prof, freq);
-    return resp;
+    return reunionValida(r, prof, freq);
 }
-
-// proc acelerar
+/*===========================================================================*/
+/*=================proc acelerar=============================================*/
 void acelerar(reunion &r, int prof, int freq) {
     reunion rV = r;
     for (int i = 0; i < rV.size(); i++) {
@@ -136,9 +133,9 @@ void acelerar(reunion &r, int prof, int freq) {
         }
         r[i].second = rV[i].second;
     }
-    return;
 }
-
+/*===========================================================================*/
+/*=================proc ralentizar===========================================*/
 void ralentizar(reunion &r, int prof, int freq) {
     reunion rV = r;
     reunion rN(r.size());
@@ -155,9 +152,9 @@ void ralentizar(reunion &r, int prof, int freq) {
         rN[i].second = r[i].second;
     }
     r = rN;
-    return;
 }
-
+/*===========================================================================*/
+/*=================proc tonosDeVozElevados===================================*/
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
     vector<hablante> maximos{r[0].second};
     float tonoMaximo = tono(r[0].first);
@@ -176,7 +173,8 @@ vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
 
     return maximos;
 }
-
+/*===========================================================================*/
+/*=================proc ordernar=============================================*/
 void swap(reunion &r, int i, int j) {
     pair<senial, hablante> aux = r[i];
     r[i] = r[j];
@@ -202,7 +200,8 @@ void insertionSort(reunion &r) {
 void ordenar(reunion &r, int freq, int prof) {
     insertionSort(r);
 }
-
+/*===========================================================================*/
+/*=================proc silencios============================================*/
 vector<intervalo> silencios(senial s, int prof, int freq, int umbral) {
     vector<pair<int, int> > intervalos;
     int i = 0;
@@ -222,7 +221,8 @@ vector<intervalo> silencios(senial s, int prof, int freq, int umbral) {
     }
     return intervalos;
 }
-
+/*===========================================================================*/
+/*=================proc hablantesSuperpuestos================================*/
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
     vector<int> hablando(r[0].first.size());
@@ -230,8 +230,9 @@ bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     while (j < r.size() && !resp) {
         int i = 0;
         while (i < r[0].first.size() - 1 && !resp) {
-            if (((valorAbsoluto(r[j].first[i])) >= umbral) ||
-                ((valorAbsoluto(r[j].first[i])) < umbral) && ((valorAbsoluto(r[j].first[i + 1])) >= umbral)) {
+            if (valorAbsoluto(r[j].first[i]) >= umbral ||
+                (valorAbsoluto(r[j].first[i]) < umbral &&
+                 valorAbsoluto(r[j].first[i + 1]) >= umbral)) {
                 if (hablando[i] == 1) {
                     resp = true;
                 } else {
@@ -246,7 +247,8 @@ bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     }
     return resp;
 }
-
+/*===========================================================================*/
+/*=================proc reconstruir==========================================*/
 int noNuloMasCercanoAIzquierda(senial s, int i) {
     //supongo que i está en rango
     int res = 0;
@@ -285,13 +287,15 @@ senial reconstruir(senial s, int prof, int freq) {
             if (s[i - 1] * s[i + 1] < 0) {
                 sN[i] = s[i];
             } else {
-                sN[i] = promedio(noNuloMasCercanoAIzquierda(s, i), noNuloMasCercanoADerecha(s, i));
+                sN[i] = promedio(noNuloMasCercanoAIzquierda(s, i),
+                                 noNuloMasCercanoADerecha(s, i));
             }
         }
     }
     return sN;
 }
-
+/*===========================================================================*/
+/*=================proc filtradoMediana======================================*/
 void swap(vector<int> &w, int i, int j) {
     int aux = w[i];
     w[i] = w[j];
@@ -339,4 +343,4 @@ void filtradoMediana(senial &s, int R, int prof, int freq) {
         i++;
     }
 }
-
+/*===========================================================================*/
