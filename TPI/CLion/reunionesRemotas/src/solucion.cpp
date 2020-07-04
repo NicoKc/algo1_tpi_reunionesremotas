@@ -226,23 +226,27 @@ vector<intervalo> silencios(senial s, int prof, int freq, int umbral) {
 /*=================proc hablantesSuperpuestos================================*/
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
-    vector<int> hablando(r[0].first.size());
+    vector<bool> hablando(r[0].first.size(), false);
     int j = 0;
     while (j < r.size() && !resp) {
         int i = 0;
-        while (i < r[0].first.size() - 1 && !resp) {
-            if (valorAbsoluto(r[j].first[i]) >= umbral ||
-                (valorAbsoluto(r[j].first[i]) < umbral &&
-                 valorAbsoluto(r[j].first[i + 1]) >= umbral)) {
-                if (hablando[i] == 1) {
-                    resp = true;
-                } else {
-                    hablando[i] = 1;
-                }
-                i++;
+        int cont = 0;
+        while (i < r[0].first.size() && !resp) {
+            if (valorAbsoluto(r[j].first[i]) < umbral) {
+                cont++;
             } else {
-                i++;
+                if (cont > 0) {
+                    if (cont < 2) {
+                        resp = hablando[i - 1];
+                        hablando[i - 1] = true;
+                    }
+                    cont = 0;
+                }
+
+                resp = resp || hablando[i];
+                hablando[i] = true;
             }
+            i++;
         }
         j++;
     }
