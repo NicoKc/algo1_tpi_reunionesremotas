@@ -43,11 +43,14 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c_1$ & 1 \\
-            $c_2$ & 1 \\
-            $c_3$ & 1 \\
-        \end{tabular}
+            $       $ &$        $\\
+            $c_1    $ &$1       $\\
+            $c_2    $ &$1       $\\
+            $c_3    $ &$1       $\\
+            $       $ &$        $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
@@ -63,12 +66,16 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.34\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c^{\prime}_1$ & 1 \\
-            $c^{\prime}_2$ & m+1 \\
-            $c^{\prime}_3$ & m \\
-            $c^{\prime}_4$ & m \\
-        \end{tabular}
+            $               $ &$        $\\
+            $c^{\prime}_1   $ &$1       $\\
+            $c^{\prime}_2   $ &$m+1     $\\
+            $c^{\prime}_3   $ &$m       $\\
+            $c^{\prime}_4   $ &$m       $\\
+            $               $ &$        $\\
+            $               $ &$        $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
@@ -87,17 +94,16 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.43\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime\prime}_1$ & 1 \\
-            $                  $ &   \\
-            $c^{\prime\prime}_2$ & m+1 \\
-            $c^{\prime\prime}_3 \cdot m$ & m \\
-            $c^{\prime\prime}_4$ & m \\
-            $                  $ &   \\
-            $c^{\prime\prime}_5$ & 1 \\
-
-        \end{tabular}
+            $                             $ &$     $\\
+            $c^{\prime\prime}_1           $ &$1    $\\
+            $c^{\prime\prime}_2           $ &$m+1  $\\
+            $c^{\prime\prime}_3 \cdot m   $ &$m    $\\
+            $c^{\prime\prime}_4           $ &$m    $\\
+            $                             $ &$     $\\
+            $                             $ &$     $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
@@ -105,9 +111,32 @@
         \item $T_{insertSort}(m) = c^{\prime\prime}_1 +
                                    c^{\prime\prime}_2 \cdot (m+1) +
                                    c^{\prime\prime}_3 \cdot m^2 +
-                                   c^{\prime\prime}_4 \cdot m +
-                                   c^{\prime\prime}_5$
+                                   c^{\prime\prime}_4 \cdot m$
         \item $T_{insertSort}(m) \in O(m^{2})$
+    \end{itemize}
+
+    \subsection*{posicionROrdenada}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/posicionROrdenada.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \resizebox{0.35\textwidth}{!}{%
+        \begin{tabular}{|c|c}
+            $                                   $ &$     $\\
+            $c^{\prime\prime\prime\prime}_1 \cdot m^2 $ &$1    $\\
+            $                                   $ &$     $\\
+            $c^{\prime\prime\prime\prime}_2           $ &$1    $\\
+            $                                   $ &$     $\\
+        \end{tabular}}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $m = \longitud{w}$
+        \item $T_{posicionROrdenada}(m) = c^{\prime\prime\prime\prime}_1 \cdot m^2 +
+                                   c^{\prime\prime}_2 $
+        \item $T_{posicionROrdenada}(m) \in O(m^{2})$
     \end{itemize}
 
     \subsection*{filtradoMediana}
@@ -117,44 +146,47 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.55\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c^{\prime\prime\prime}_1            $ & m     \\
-            $c^{\prime\prime\prime}_2            $ & m     \\
-            $                                    $ &       \\
-            $c^{\prime\prime\prime}_3            $ & 1     \\
-            $c^{\prime\prime\prime}_4            $ & m + 1 \\
-            $c^{\prime\prime\prime}_5            $ & m     \\
-            $c^{\prime\prime\prime}_6            $ & m     \\
-            $                                    $ &       \\
-            $c^{\prime\prime\prime}_7            $ & 1     \\
-            $c^{\prime\prime\prime}_8            $ & 1     \\
-            $c^{\prime\prime\prime}_9            $ & n-m+1 \\
-            $c^{\prime\prime\prime}_{10}         $ & n-m   \\
-            $c^{\prime\prime\prime}_{11}         $ & n-m-1 \\
-            $                                    $ &       \\
-            $c^{\prime\prime\prime}_{12} \cdot m $ & n-m   \\
-            $c^{\prime\prime\prime}_{13}         $ & n-m   \\
-            $c^{\prime\prime\prime}_{14}         $ & n-m   \\
-
-        \end{tabular}
+            $                                               $ &$     $\\
+            $c^{\prime\prime\prime\prime}_1                 $ &$1    $\\
+            $c^{\prime\prime\prime\prime}_2                 $ &$m    $\\
+            $                                               $ &$     $\\
+            $c^{\prime\prime\prime\prime}_3                 $ &$1    $\\
+            $c^{\prime\prime\prime\prime}_4                 $ &$m + 1$\\
+            $c^{\prime\prime\prime\prime}_5                 $ &$m    $\\
+            $c^{\prime\prime\prime\prime}_6                 $ &$m    $\\
+            $                                               $ &$     $\\
+            $                                               $ &$     $\\
+            $c^{\prime\prime\prime\prime}_7                 $ &$1    $\\
+            $c^{\prime\prime\prime\prime}_8                 $ &$1    $\\
+            $c^{\prime\prime\prime\prime}_9                 $ &$n-m+1$\\
+            $c^{\prime\prime\prime\prime}_{10}              $ &$n-m  $\\
+            $c^{\prime\prime\prime\prime}_{11}              $ &$n-m-1$\\
+            $                                               $ &$     $\\
+            $c^{\prime\prime\prime\prime}_{12} \cdot m^{2}  $ &$n-m  $\\
+            $c^{\prime\prime\prime\prime}_{13}              $ &$n-m  $\\
+            $                                               $ &$     $\\
+            $                                               $ &$     $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $m = (2*R) + 1 \wedge n = \longitud{s}$
-        \item $T_{filtradoMediana}(n) = c^{\prime\prime\prime}_1+                       $
-                                       $c^{\prime\prime\prime}_2+                       $
-                                       $c^{\prime\prime\prime}_3+                       $
-                                       $c^{\prime\prime\prime}_4 \cdot (m+1)+           $
-                                       $c^{\prime\prime\prime}_5 \cdot m+               $
-                                       $c^{\prime\prime\prime}_6 \cdot m+               $
-                                       $c^{\prime\prime\prime}_7+                       $
-                                       $c^{\prime\prime\prime}_8+                       $
-                                       $c^{\prime\prime\prime}_9 \cdot (n-m+1)+         $
-                                       $c^{\prime\prime\prime}_{10} \cdot (n-m)+        $
-                                       $c^{\prime\prime\prime}_{11} \cdot (n-m-1)+      $
-                                       $c^{\prime\prime\prime}_{12} \cdot m \cdot (n-m)+$
-                                       $c^{\prime\prime\prime}_{13} \cdot (n-m)         $
-        \item $T_{filtradoMediana}(n) \in O(m \cdot (n - m))$
+        \item $T_{filtradoMediana}(n) = c^{\prime\prime\prime\prime}_1+
+                                       c^{\prime\prime\prime\prime}_2 \cdot m+
+                                       c^{\prime\prime\prime\prime}_3+
+                                       c^{\prime\prime\prime\prime}_4 \cdot (m+1)+
+                                       c^{\prime\prime\prime\prime}_5 \cdot m+
+                                       c^{\prime\prime\prime\prime}_6 \cdot m+
+                                       c^{\prime\prime\prime\prime}_7+
+                                       c^{\prime\prime\prime\prime}_8+
+                                       c^{\prime\prime\prime\prime}_9 \cdot (n-m+1)+
+                                       c^{\prime\prime\prime\prime}_{10} \cdot (n-m)+
+                                       c^{\prime\prime\prime\prime}_{11} \cdot (n-m-1)+
+                                       c^{\prime\prime\prime\prime}_{12} \cdot m^2 \cdot (n-m)+
+                                       c^{\prime\prime\prime\prime}_{13} \cdot (n-m)$
+        \item $T_{filtradoMediana}(n) \in O(m^2 \cdot (n - m))$
         \item $ m \in [5,9]$
         \item $T_{filtradoMediana}(n) \in O(n)$
     \end{itemize}

@@ -1,11 +1,7 @@
-vector<int> insertionSort(vector<int> w) {
-    vector<int> res = w;
-
+void insertionSort(vector<int> &w) {
     int i = 0;
     while (i < w.size()) {
-        insert(res, i);
+        insert(w, i);
         i++;
     }
-
-    return res;
 }
