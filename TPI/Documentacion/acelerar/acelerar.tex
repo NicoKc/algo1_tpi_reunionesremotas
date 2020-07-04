@@ -44,23 +44,31 @@
     \hfill
     \begin{minipage}{0.25\textwidth}
         \begin{tabular}{|c|c}
-            $c_1$ & 1 \\
-            $c_2$ & m+1 \\
-            $c_3$ & m \\
-            $c_4$ & m*n/2 \\
-            $c_5$ & m*n/2 \\
-            $c_6$ & m*n/2 \\
-            $c_7$ & m*n \\
-            $c_8$ & m*n \\
-            $c_9$ & m \\
+            $c_1$ & $1$ \\
+            $c_2$ & $m+1$ \\
+            $c_3$ & $m$ \\
+            $c_4$ & $\frac{m \cdot n}{2}$ \\
+            $c_5$ & $\frac{m \cdot n}{2}$ \\
+            $c_6$ & $\frac{m \cdot n}{2}$ \\
+            $c_7$ & $m \cdot n$ \\
+            $c_8$ & $m \cdot n$ \\
+            $c_9$ & $m$ \\
         \end{tabular}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{r}$
         \item $n = \longitud{r[0].first}$
-        \item $T_{acelerar}(m, n) = c_1 + c_2 * (m+1) + c_3 * m + c_4 * (m*n/2)+ c_5 * (m*n/2)+ c_6 * (m*n/2)+ c_7* (m*n) + c_8 * (m*n)+ c_9* m $ 
-        \item $T_{acelerar}(m, n) \in O(m*n)$
+        \item $T_{acelerar}(m, n) = c_1 + 
+                                    c_2 \cdot (m+1) +
+                                    c_3 \cdot m + 
+                                    c_4 \cdot \frac{m \cdot n}{2} +
+                                    c_5 \cdot \frac{m \cdot n}{2} +
+                                    c_6 \cdot \frac{m \cdot n}{2} +
+                                    c_7 \cdot (m \cdot n) +
+                                    c_8 \cdot (m \cdot n) +
+                                    c_9 \cdot m $ 
+        \item $T_{acelerar}(m, n) \in O(m \cdot n)$
     \end{itemize}
 
 \end{document}
