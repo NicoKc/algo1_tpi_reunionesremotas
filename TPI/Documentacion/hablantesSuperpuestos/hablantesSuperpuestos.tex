@@ -36,40 +36,90 @@
 
     \section*{Hablantes Superpuetos}
 
+    \subsection*{valorAbsoluto}
+
+    \begin{minipage}{0.70\textwidth}
+        \lstinputlisting{./code/valorAbsoluto.cpp}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
+        \begin{tabular}{|c|c}
+            $               $ &$   $\\
+            $c_1            $ &$ 1 $\\
+            $c_2            $ &$ 1 $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+        \end{tabular}}
+    \end{minipage}
+
+    \begin{itemize}
+        \item $T_{valorAbsoluto} = c_1 + c_2$
+        \item $T_{valorAbsoluto} \in O(1)$
+    \end{itemize}
+
     \subsection*{hablantesSuperpuestos}
 
     \begin{minipage}{0.70\textwidth}
         \lstinputlisting{./code/hablantesSuperpuestos.cpp}
     \end{minipage}
-    \hfill
+    \hfill  
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.476\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c_1$ & 1 \\
-            $c_2$ & n \\
-            $c_3$ & 1 \\
-            $c_4$ & m + 1 \\
-            $c_5$ & m \\
-            $c_6 * m$ & (n-1) + 1 \\
-            $c_7 * m$ & (n-1) \\
-            $c_8 * m$ & (n-1) \\
-            $c_9 * m$ & (n-1) \\
-            $	    $ & \\
-            $	    $ & \\
-            $	    $ & \\
-            $c_10 * m$ & (n-1) \\
-            $	    $ & \\
-            $	    $ & \\
-            $	    $ & \\
-            $	    $ & \\
-            $c_11$ & m \\
-        \end{tabular}
+            $                           $ & $               $\\
+            $c^{\prime}_1               $ & $1              $\\
+            $c^{\prime}_2               $ & $n              $\\
+            $c^{\prime}_3               $ & $1              $\\
+            $c^{\prime}_4               $ & $m + 1          $\\
+            $c^{\prime}_5               $ & $m              $\\
+            $c^{\prime}_6               $ & $m              $\\
+            $c^{\prime}_7               $ & $m \cdot (n + 1)$\\
+            $c^{\prime}_8               $ & $m \cdot (n - 1)$\\
+            $c^{\prime}_9               $ & $m \cdot (n - 1)$\\
+            $                           $ & $               $\\
+            $c^{\prime}_{10}            $ & $m              $\\
+            $c^{\prime}_{11}            $ & $m              $\\
+            $c^{\prime}_{12}            $ & $m              $\\
+            $c^{\prime}_{13}            $ & $m              $\\
+            $                           $ & $               $\\
+            $c^{\prime}_{14}            $ & $m              $\\
+            $                           $ & $               $\\
+            $                           $ & $               $\\
+            $c^{\prime}_{15}            $ & $m              $\\
+            $c^{\prime}_{16}            $ & $m              $\\
+            $                           $ & $               $\\
+            $c^{\prime}_{17}            $ & $m \cdot n      $\\
+            $                           $ & $               $\\
+            $c^{\prime}_{18}            $ & $m              $\\
+            $                           $ & $               $\\
+            $                           $ & $               $\\
+            $                           $ & $               $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $n = \longitud{r[0].first}$
         \item $m = \longitud{r}$
-        \item $T_{hablantesSuperpuestos}(r) = c_1 + c_2 * n + c_3 + c_4 * (m+1) + c_5 * m + c_6 * m * n + c_7 * m * (n-1) + c_8 * m * (n-1) + c_9 * m * (n-1) + c_10 * m * (n-1) + c_11 * m $
-        \item $T_{hablantesSuperpuestos}(r) \in O(m*n)$
+        \item $T_{hablantesSuperpuestos}(r) = c^{\prime}_1 +
+                                              c^{\prime}_2 \cdot n +
+                                              c^{\prime}_3 +
+                                              c^{\prime}_4 \cdot (m + 1) +
+                                              c^{\prime}_5 \cdot m +
+                                              c^{\prime}_6 \cdot m +
+                                              c^{\prime}_7 \cdot m \cdot (n + 1) +
+                                              c^{\prime}_8 \cdot m \cdot (n - 1) + \\
+                                              c^{\prime}_9 \cdot m \cdot (n - 1) +
+                                              c^{\prime}_{10} \cdot m +
+                                              c^{\prime}_{12} \cdot m +
+                                              c^{\prime}_{13} \cdot m +
+                                              c^{\prime}_{14} \cdot m +
+                                              c^{\prime}_{15} \cdot m +
+                                              c^{\prime}_{16} \cdot m +
+                                              c^{\prime}_{17} \cdot m \cdot n +
+                                              c^{\prime}_{18} \cdot m $
+        \item $T_{hablantesSuperpuestos}(r) \in O(m \cdot n)$
     \end{itemize}
 
 \end{document}
