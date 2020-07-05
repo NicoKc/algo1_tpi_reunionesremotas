@@ -134,11 +134,12 @@
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{insert}(m) = c^{\prime\prime\prime}_1 +
+        \item $n = \longitud{r[0].first}$
+        \item $T_{insert}(m, n) = c^{\prime\prime\prime}_1 +
                                c^{\prime\prime\prime}_2 \cdot 2n \cdot (m+1) +
                                c^{\prime\prime\prime}_3 \cdot m +
                                c^{\prime\prime\prime}_4 \cdot m $
-        \item $T_{insert}(m) \in O(n \cdot m)$
+        \item $T_{insert}(m, n) \in O(n \cdot m)$
     \end{itemize}
 
     \subsection*{insertionSort}
@@ -162,11 +163,12 @@
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{insertSort}(m) = c^{\prime\prime\prime\prime}_1 +
+        \item $n = \longitud{r[0].first}$
+        \item $T_{insertSort}(m, n) = c^{\prime\prime\prime\prime}_1 +
                                    c^{\prime\prime\prime\prime}_2 \cdot (m+1) +
                                    c^{\prime\prime\prime\prime}_3 \cdot n \cdot m^2 +
                                    c^{\prime\prime\prime\prime}_4 \cdot m$
-        \item $T_{insertSort}(m) \in O(n \cdot m^{2})$
+        \item $T_{insertSort}(m, n) \in O(n \cdot m^{2})$
     \end{itemize}
 
     \subsection*{ordenar}
@@ -186,8 +188,9 @@
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{ordenar}(m) = c^{\prime\prime\prime\prime\prime}_1 \cdot n \cdot m^2$
-        \item $T_{ordenar}(m) \in O(n \cdot m^{2})$
+        \item $n = \longitud{r[0].first}$
+        \item $T_{ordenar}(m, n) = c^{\prime\prime\prime\prime\prime}_1 \cdot n \cdot m^2$
+        \item $T_{ordenar}(m, n) \in O(n \cdot m^{2})$
     \end{itemize}
 
 \end{document}
