@@ -43,17 +43,21 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c_1$ & 1 \\
-            $c_2$ & 1 \\
-           
-        \end{tabular}
+            $               $ &$   $\\
+            $c_1            $ &$ 1 $\\
+            $c_2            $ &$ 1 $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
-        \item $T_{valorAbsoluto} = c_1 + c_2$
-        \item $T_{valorAbsoluto} \in O(1)$
+        \item $T_{valorAbsoluto}(n) = c_1 +
+                                      c_2$
+        \item $T_{valorAbsoluto}(n) \in O(1)$
     \end{itemize}
 
     \subsection*{tono}
@@ -63,33 +67,40 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.325\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime}_1$ & 1 \\
-            $c^{\prime}_2$ & n+1 \\
-            $c^{\prime}_3$ & n \\
-            $   $ &   \\
-            $c^{\prime}_4$ & 1 \\
-
-        \end{tabular}
+            $                   $ &$         $\\
+            $c^{\prime}_1       $ &$1        $\\
+            $c^{\prime}_2       $ &$n+1      $\\
+            $c^{\prime}_3       $ &$n        $\\
+            $                   $ &$         $\\
+            $c^{\prime}_4       $ &$1        $\\
+            $                   $ &$         $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $n = \longitud{s}$
-        \item $T_{tono}(n) = c^{\prime}_1 + c^{\prime}_2 * (n + 1) + c^{\prime}_3 * n + c^{\prime}_4 $
+        \item $T_{tono}(n) = c^{\prime}_1 +
+                             c^{\prime}_2 \cdot (n + 1) +
+                             c^{\prime}_3 \cdot n +
+                             c^{\prime}_4 $
         \item $T_{tono}(n) \in O(n)$
     \end{itemize}
 
     \subsection*{duraMasDe}
+
     \begin{minipage}{0.70\textwidth}
         \lstinputlisting{./code/duraMasDe.cpp}
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c^{\prime\prime}_1$ & 1 \\
-
-        \end{tabular}
+            $                   $ &$1    $\\
+            $c^{\prime\prime}_1 $ &$1    $\\
+            $                   $ &$1    $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
@@ -107,24 +118,28 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.85\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $                        $                 &             \\
-            $c^{\prime\prime\prime}_1$                 & $1$         \\
-            $c^{\prime\prime\prime}_2$                 & $1$         \\
-            $c^{\prime\prime\prime}_3$                 & $1$         \\
-            $                        $                 &             \\
-            $c^{\prime\prime\prime}_4$                 & $1$         \\
-            $c^{\prime\prime\prime}_5$                 & $(n-r) + 1$ \\
-            $c^{\prime\prime\prime}_6$                 & $(n-r)$     \\
-            $c^{\prime\prime\prime}_7 * (n-r)$         & $(n-r) + 1$ \\
-            $c^{\prime\prime\prime}_8 * (n-r) * (j-i)$ & $(n-r)$     \\
-            $c^{\prime\prime\prime}_9 * (n-r) * (j-i)$ & $(n-r)$     \\
-            $c^{\prime\prime\prime}_{10} * (n-r)$      & $(n-r)$     \\
-            $                        $                 &             \\
-            $c^{\prime\prime\prime}_{11}$              & $(n-r)$     \\
-            $                        $                 &             \\
-            $                        $                 &             \\
-    \end{tabular}
+            $                                                   $ &$            $\\
+            $c^{\prime\prime\prime}_1                           $ &$1           $\\
+            $c^{\prime\prime\prime}_2                           $ &$1           $\\
+            $c^{\prime\prime\prime}_3                           $ &$1           $\\
+            $                                                   $ &$            $\\
+            $                                                   $ &$            $\\
+            $c^{\prime\prime\prime}_4                           $ &$1           $\\
+            $c^{\prime\prime\prime}_5                           $ &$n - r + 1   $\\
+            $c^{\prime\prime\prime}_6                           $ &$n - r       $\\
+            $c^{\prime\prime\prime}_7 \cdot (n-r)               $ &$n - r + 1   $\\
+            $c^{\prime\prime\prime}_8 \cdot (n-r) \cdot (j-i)   $ &$n - r       $\\
+            $c^{\prime\prime\prime}_9 \cdot (n-r) \cdot (j-i)   $ &$n - r       $\\
+            $c^{\prime\prime\prime}_{10} \cdot (n-r)            $ &$n - r       $\\
+            $                                                   $ &$            $\\
+            $c^{\prime\prime\prime}_{11}                        $ &$n - r       $\\
+            $                                                   $ &$            $\\
+            $                                                   $ &$            $\\
+            $                                                   $ &$            $\\
+            $                                                   $ &$            $\\
+    \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
