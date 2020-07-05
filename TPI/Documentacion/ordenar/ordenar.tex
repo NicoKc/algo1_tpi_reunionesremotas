@@ -43,16 +43,21 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c_1$ & 1 \\
-            $c_2$ & 1 \\
-            $c_3$ & 1 \\
-        \end{tabular}
+            $       $ &$        $\\
+            $c_1    $ &$1       $\\
+            $c_2    $ &$1       $\\
+            $c_3    $ &$1       $\\
+            $       $ &$        $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{swap}(m) = c_1 + c_2 + c_3 $
+        \item $T_{swap}(m) = c_1 +
+                             c_2 +
+                             c_3 $
         \item $T_{swap}(m) \in O(1)$
     \end{itemize}
 
@@ -63,17 +68,21 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.21\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime}_1$ & 1 \\
-            $c^{\prime}_2$ & 1 \\
-           
-        \end{tabular}
+            $               $ &$   $\\
+            $c^{\prime}_1   $ &$ 1 $\\
+            $c^{\prime}_2   $ &$ 1 $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+            $               $ &$   $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
-        \item $T_{valorAbsoluto} = c^{\prime}_1 + c^{\prime}_2$
-        \item $T_{valorAbsoluto} \in O(1)$
+        \item $T_{valorAbsoluto}(n) = c^{\prime}_1 +
+                                      c^{\prime}_2$
+        \item $T_{valorAbsoluto}(n) \in O(1)$
     \end{itemize}
 
     \subsection*{tono}
@@ -83,20 +92,24 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.325\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime\prime}_1$ & 1 \\
-            $c^{\prime\prime}_2$ & n+1 \\
-            $c^{\prime\prime}_3$ & n \\
-            $                  $ &   \\
-            $c^{\prime\prime}_4$ & 1 \\
-
-        \end{tabular}
+            $                  $ &$         $\\
+            $c^{\prime\prime}_1$ &$1        $\\
+            $c^{\prime\prime}_2$ &$n+1      $\\
+            $c^{\prime\prime}_3$ &$n        $\\
+            $                  $ &$         $\\
+            $c^{\prime\prime}_4$ &$1        $\\
+            $                  $ &$         $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $n = \longitud{s}$
-        \item $T_{tono}(n) = c^{\prime\prime}_1 + c^{\prime\prime}_2 * (n + 1) + c^{\prime\prime}_3 * n + c^{\prime\prime}_4 $
+        \item $T_{tono}(n) = c^{\prime\prime}_1 +
+                             c^{\prime\prime}_2 \cdot (n + 1) +
+                             c^{\prime\prime}_3 \cdot n +
+                             c^{\prime\prime}_4 $
         \item $T_{tono}(n) \in O(n)$
     \end{itemize}
 
@@ -107,18 +120,25 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.60\textwidth}{!}{%
         \begin{tabular}{|c|c}
-            $c^{\prime\prime\prime}_1$ & 1 \\
-            $c^{\prime\prime\prime}_2*(n+n)$ & m+1 \\
-            $c^{\prime\prime\prime}_3$ & m \\
-            $c^{\prime\prime\prime}_4$ & m \\
-        \end{tabular}
+            $                                       $ &$        $\\
+            $c^{\prime\prime\prime}_1               $ &$1       $\\
+            $c^{\prime\prime\prime}_2 \cdot (n+n)   $ &$m+1     $\\
+            $c^{\prime\prime\prime}_3               $ &$m       $\\
+            $c^{\prime\prime\prime}_4               $ &$m       $\\
+            $                                       $ &$        $\\
+            $                                       $ &$        $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{insert}(m) = c^{\prime\prime\prime}_1 + c^{\prime\prime\prime}_2 * 2n * (m+1) + c^{\prime\prime\prime}_3 * m + c^{\prime\prime\prime}_4 * m $
-        \item $T_{insert}(m) \in O(n*m)$
+        \item $T_{insert}(m) = c^{\prime\prime\prime}_1 +
+                               c^{\prime\prime\prime}_2 \cdot 2n \cdot (m+1) +
+                               c^{\prime\prime\prime}_3 \cdot m +
+                               c^{\prime\prime\prime}_4 \cdot m $
+        \item $T_{insert}(m) \in O(n \cdot m)$
     \end{itemize}
 
     \subsection*{insertionSort}
@@ -128,20 +148,25 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.53\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime\prime\prime\prime}_1$ & 1 \\
-            $c^{\prime\prime\prime\prime}_2$ & m+1 \\
-            $c^{\prime\prime\prime\prime}_3*(n*m)$ & m \\
-            $c^{\prime\prime\prime\prime}_4$ & m \\
-
-        \end{tabular}
+            $                                               $ &$        $\\
+            $c^{\prime\prime\prime\prime}_1                 $ &$1       $\\
+            $c^{\prime\prime\prime\prime}_2                 $ &$m+1     $\\
+            $c^{\prime\prime\prime\prime}_3 \cdot n \cdot m $ &$m       $\\
+            $c^{\prime\prime\prime\prime}_4                 $ &$m       $\\
+            $                                               $ &$        $\\
+            $                                               $ &$        $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{insertSort}(m) = c^{\prime\prime\prime\prime}_1 + c^{\prime\prime\prime\prime}_2 * (m+1) + c^{\prime\prime\prime\prime}_3*n*m*m + c^{\prime\prime\prime\prime}_4 * m$
-        \item $T_{insertSort}(m) \in O(n*m^{2})$
+        \item $T_{insertSort}(m) = c^{\prime\prime\prime\prime}_1 +
+                                   c^{\prime\prime\prime\prime}_2 \cdot (m+1) +
+                                   c^{\prime\prime\prime\prime}_3 \cdot n \cdot m^2 +
+                                   c^{\prime\prime\prime\prime}_4 \cdot m$
+        \item $T_{insertSort}(m) \in O(n \cdot m^{2})$
     \end{itemize}
 
     \subsection*{ordenar}
@@ -151,17 +176,18 @@
     \end{minipage}
     \hfill
     \begin{minipage}{0.25\textwidth}
+        \resizebox{0.45\textwidth}{!}{%
         \begin{tabular}{|c|c}
-
-            $c^{\prime\prime\prime\prime\prime}_1*(n*m^2)$ & 1 \\
-
-        \end{tabular}
+            $                                                           $ &$  $\\
+            $c^{\prime\prime\prime\prime\prime}_1 \cdot n \cdot  m^2    $ &$1 $\\
+            $                                                           $ &$  $\\
+        \end{tabular}}
     \end{minipage}
 
     \begin{itemize}
         \item $m = \longitud{r}$
-        \item $T_{ordenar}(m) = c^{\prime\prime\prime\prime\prime}_1*(n*m^2)$
-        \item $T_{ordenar}(m) \in O(n*m^{2})$
+        \item $T_{ordenar}(m) = c^{\prime\prime\prime\prime\prime}_1 \cdot n \cdot m^2$
+        \item $T_{ordenar}(m) \in O(n \cdot m^{2})$
     \end{itemize}
 
 \end{document}
