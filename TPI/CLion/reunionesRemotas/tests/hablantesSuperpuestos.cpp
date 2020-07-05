@@ -1,4 +1,5 @@
 #include "../src/solucion.h"
+#include "../src/auxiliares.h"
 #include "../lib/gtest.h"
 
 using namespace std;
