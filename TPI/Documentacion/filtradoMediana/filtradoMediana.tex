@@ -173,7 +173,7 @@
 
     \begin{itemize}
         \item $m = (2*R) + 1 \wedge n = \longitud{s}$
-        \item $T_{filtradoMediana}(n) = c^{\prime\prime\prime\prime}_1+
+        \item $T_{filtradoMediana}(m, n) = c^{\prime\prime\prime\prime}_1+
                                        c^{\prime\prime\prime\prime}_2 \cdot m+
                                        c^{\prime\prime\prime\prime}_3+
                                        c^{\prime\prime\prime\prime}_4 \cdot (m+1)+
@@ -181,14 +181,14 @@
                                        c^{\prime\prime\prime\prime}_6 \cdot m+
                                        c^{\prime\prime\prime\prime}_7+
                                        c^{\prime\prime\prime\prime}_8+
-                                       c^{\prime\prime\prime\prime}_9 \cdot (n-m+1)+
+                                       c^{\prime\prime\prime\prime}_9 \cdot (n-m+1)+ \\
                                        c^{\prime\prime\prime\prime}_{10} \cdot (n-m)+
                                        c^{\prime\prime\prime\prime}_{11} \cdot (n-m-1)+
                                        c^{\prime\prime\prime\prime}_{12} \cdot m^2 \cdot (n-m)+
                                        c^{\prime\prime\prime\prime}_{13} \cdot (n-m)$
-        \item $T_{filtradoMediana}(n) \in O(m^2 \cdot (n - m))$
+        \item $T_{filtradoMediana}(m, n) \in O(m^2 \cdot (n - m))$
         \item $ m \in [5,9]$
-        \item $T_{filtradoMediana}(n) \in O(n)$
+        \item $T_{filtradoMediana}(m, n) \in O(n)$
     \end{itemize}
 
 \end{document}
