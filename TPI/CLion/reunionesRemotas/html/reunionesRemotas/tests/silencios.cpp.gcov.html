@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-07-02 16:16:52</td>
+            <td class="headerValue">2020-07-05 19:15:06</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -67,19 +67,91 @@
 <span class="lineNum">       5 </span>            : 
 <a name="6"><span class="lineNum">       6 </span>            : using namespace std;</a>
 <span class="lineNum">       7 </span>            : 
-<span class="lineNum">       8 </span><span class="lineCov">          5 : TEST(silenciosTEST, silenciosValidos){</span>
+<span class="lineNum">       8 </span><span class="lineCov">          5 : TEST(silenciosTEST, silenciosValidos) {</span>
 <span class="lineNum">       9 </span><span class="lineCov">          2 :     senial hablante = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};</span>
 <span class="lineNum">      10 </span><span class="lineCov">          1 :     int prof = 8;</span>
 <span class="lineNum">      11 </span><span class="lineCov">          1 :     int freq = 10;</span>
 <span class="lineNum">      12 </span><span class="lineCov">          1 :     int umbral = 3;</span>
 <span class="lineNum">      13 </span>            : 
-<span class="lineNum">      14 </span><span class="lineCov">          2 :     vector&lt;intervalo&gt; intervalos = {make_pair(5,6)};</span>
+<span class="lineNum">      14 </span><span class="lineCov">          2 :     vector&lt;intervalo&gt; intervalos = {make_pair(5, 6)};</span>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <span class="lineNum">      16 </span><span class="lineCov">          1 :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);</span>
 <span class="lineNum">      17 </span><span class="lineCov">          4 : }</span>
 <span class="lineNum">      18 </span>            : 
-<span class="lineNum">      19 </span>            : 
-<span class="lineNum">      20 </span>            : 
+<span class="lineNum">      19 </span>            : TEST(silenciosTEST, silenciosValidos2) {
+<span class="lineNum">      20 </span>            :     senial hablante = {1, 0, -2, -1, 6, 0, -2, 1, 9, -15};
+<span class="lineNum">      21 </span>            :     int prof = 8;
+<span class="lineNum">      22 </span>            :     int freq = 10;
+<span class="lineNum">      23 </span>            :     int umbral = 3;
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            :     vector&lt;intervalo&gt; intervalos = {make_pair(0, 3), make_pair(5, 7)};
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            :     vector&lt;intervalo&gt; resultado = silencios(hablante, prof, freq, umbral);
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            :     ASSERT_EQ(intervalos, resultado);
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
+<span class="lineNum">      32 </span>            : }
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : TEST(silenciosTEST, todaLaSenialEsSilencio) {
+<span class="lineNum">      35 </span>            :     senial hablante = {1, 0, -2, -1, 2, 0, -2, 1, -1, 2};
+<span class="lineNum">      36 </span>            :     int prof = 8;
+<span class="lineNum">      37 </span>            :     int freq = 10;
+<span class="lineNum">      38 </span>            :     int umbral = 3;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            :     vector&lt;intervalo&gt; intervalos = {make_pair(0, hablante.size() - 1)};
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            :     vector&lt;intervalo&gt; resultado = silencios(hablante, prof, freq, umbral);
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            :     ASSERT_EQ(intervalos, resultado);
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
+<span class="lineNum">      47 </span>            : }
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : TEST(silenciosTEST, noHaySilencios) {
+<span class="lineNum">      50 </span>            :     senial hablante = {3, 6, -9, 0, 20, 32, -3, 3, -3, 3};
+<span class="lineNum">      51 </span>            :     int prof = 8;
+<span class="lineNum">      52 </span>            :     int freq = 10;
+<span class="lineNum">      53 </span>            :     int umbral = 3;
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span>            :     vector&lt;intervalo&gt; intervalos(0);
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            :     vector&lt;intervalo&gt; resultado = silencios(hablante, prof, freq, umbral);
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span>            :     ASSERT_EQ(intervalos, resultado);
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
+<span class="lineNum">      62 </span>            : }
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : TEST(silenciosTEST, noHaySilencios2) {
+<span class="lineNum">      65 </span>            :     senial hablante = {0, 3, 0, 3, 0, 3, 0, 3, 0, 3};
+<span class="lineNum">      66 </span>            :     int prof = 8;
+<span class="lineNum">      67 </span>            :     int freq = 10;
+<span class="lineNum">      68 </span>            :     int umbral = 3;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            :     vector&lt;intervalo&gt; intervalos(0);
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            :     vector&lt;intervalo&gt; resultado = silencios(hablante, prof, freq, umbral);
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            :     ASSERT_EQ(intervalos, resultado);
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
+<span class="lineNum">      77 </span>            : }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span>            : TEST(silenciosTEST, noHaySilencios3) {
+<span class="lineNum">      80 </span>            :     senial hablante = {3, 0, 3, 0, 3, 0, 3, 0, 3, 0};
+<span class="lineNum">      81 </span>            :     int prof = 8;
+<span class="lineNum">      82 </span>            :     int freq = 10;
+<span class="lineNum">      83 </span>            :     int umbral = 3;
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            :     vector&lt;intervalo&gt; intervalos(0);
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            :     vector&lt;intervalo&gt; resultado = silencios(hablante, prof, freq, umbral);
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span>            :     ASSERT_EQ(intervalos, resultado);
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            :     ASSERT_INTERVALOS_EQ(silencios(hablante, prof, freq, umbral), intervalos);
+<span class="lineNum">      92 </span>            : }
 </pre>
       </td>
     </tr>

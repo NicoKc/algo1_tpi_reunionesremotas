@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-07-02 16:16:52</td>
+            <td class="headerValue">2020-07-05 19:15:06</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -83,10 +83,37 @@
 <span class="lineNum">      21 </span><span class="lineCov">          1 :     ASSERT_REUNION_EQ(reunionOriginal, reunionAcelerada);</span>
 <span class="lineNum">      22 </span><span class="lineCov">          4 : }</span>
 <span class="lineNum">      23 </span>            : 
-<span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span>            : 
-<span class="lineNum">      26 </span>            : 
-<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      24 </span>            : TEST(acelerarTEST, aceleracionValidaPar){
+<span class="lineNum">      25 </span>            :     senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9};
+<span class="lineNum">      26 </span>            :     senial hablante2 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9};
+<span class="lineNum">      27 </span>            :     reunion reunionOriginal = {make_pair(hablante1, 0), make_pair(hablante2, 1)};
+<span class="lineNum">      28 </span>            :     int prof = 8;
+<span class="lineNum">      29 </span>            :     int freq = 10;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            :     senial hablante1Acelerado = {3, 4, 0, -8, -15, 1, -3, 6, -2, 9};
+<span class="lineNum">      32 </span>            :     senial hablante2Acelerado = {3, 4, 0, -8, -15, 1, -3, 6, -2, 9};
+<span class="lineNum">      33 </span>            :     reunion reunionAcelerada = {make_pair(hablante1Acelerado, 0), make_pair(hablante2Acelerado, 1)};
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            :     acelerar(reunionOriginal, prof, freq);
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            :     ASSERT_REUNION_EQ(reunionOriginal, reunionAcelerada);
+<span class="lineNum">      38 </span>            : }
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : TEST(acelerarTEST, aceleracionValidaImpar2){
+<span class="lineNum">      41 </span>            :     senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+<span class="lineNum">      42 </span>            :     senial hablante2 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15, 7, 1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+<span class="lineNum">      43 </span>            :     reunion reunionOriginal = {make_pair(hablante1, 0), make_pair(hablante2, 1)};
+<span class="lineNum">      44 </span>            :     int prof = 8;
+<span class="lineNum">      45 </span>            :     int freq = 10;
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            :     senial hablante1Acelerado = {3, 4, 0, -8, -15, 1, -3, 6, -2, 9};
+<span class="lineNum">      48 </span>            :     senial hablante2Acelerado = {3, 4, 0, -8, -15, 1, -3, 6, -2, 9};
+<span class="lineNum">      49 </span>            :     reunion reunionAcelerada = {make_pair(hablante1Acelerado, 0), make_pair(hablante2Acelerado, 1)};
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            :     acelerar(reunionOriginal, prof, freq);
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            :     ASSERT_REUNION_EQ(reunionOriginal, reunionAcelerada);
+<span class="lineNum">      54 </span>            : }
 </pre>
       </td>
     </tr>
